@@ -1,0 +1,337 @@
+{
+  "mode": "minimax",
+  "input_file": "examples/missing.input.json",
+  "phases": [
+    {
+      "phase": "ask",
+      "options": [],
+      "result": {
+        "material_id": "M02",
+        "requested_slot": "2026-11-15T18:00+08:00",
+        "confirmed_slot": "2026-11-15T18:00+08:00",
+        "status": "insufficient_info",
+        "audit_status": "insufficient_info",
+        "risk_reasons": [],
+        "audit_evidence": [],
+        "suggested_slot": null,
+        "pending_items": [
+          "请补齐或修正 rights_cleared"
+        ],
+        "draft": {
+          "status": "not_attempted"
+        },
+        "incomplete_reason": null,
+        "clarification": {
+          "questions": [
+            {
+              "field": "rights_cleared",
+              "rule_id": "R01",
+              "question": "这项素材的版权授权是否通过？请提供授权记录编号和审核结论。"
+            }
+          ],
+          "resume_option": "--evidence",
+          "resume_instruction": "补齐资料后，用相同请求和数据库重新运行审核。"
+        },
+        "model": "MiniMax-M3.1-Flash",
+        "trace": [
+          {
+            "step": 1,
+            "actor": "model",
+            "action": "read_material",
+            "arguments": {},
+            "result": {
+              "status": "found",
+              "material_id": "M02",
+              "metadata": {
+                "title": "字幕功能入门",
+                "brand_reviewed": true
+              }
+            },
+            "decision_basis": "读取素材M02的元数据以进行审核检查",
+            "next_action": "check_rules"
+          },
+          {
+            "step": 2,
+            "actor": "model",
+            "action": "check_rules",
+            "arguments": {},
+            "result": {
+              "status": "insufficient_info",
+              "findings": [
+                {
+                  "rule_id": "R01",
+                  "kind": "missing_or_invalid",
+                  "field": "rights_cleared",
+                  "reason": "请补齐或修正 rights_cleared"
+                }
+              ],
+              "supplement_available": false
+            },
+            "decision_basis": "依据已读元数据检查审核规则是否通过",
+            "next_action": "ask_user"
+          },
+          {
+            "step": 3,
+            "actor": "model",
+            "action": "ask_user",
+            "arguments": {},
+            "result": {
+              "status": "insufficient_info",
+              "clarification": {
+                "questions": [
+                  {
+                    "field": "rights_cleared",
+                    "rule_id": "R01",
+                    "question": "这项素材的版权授权是否通过？请提供授权记录编号和审核结论。"
+                  }
+                ],
+                "resume_option": "--evidence",
+                "resume_instruction": "补齐资料后，用相同请求和数据库重新运行审核。"
+              }
+            },
+            "decision_basis": "审核发现rights_cleared缺项且无本地证据可补查，需向操作者索要该字段资料",
+            "next_action": null
+          }
+        ],
+        "context": {
+          "budget_bytes": 24576,
+          "compact_at_bytes": 12288,
+          "observation_limit_bytes": 2048,
+          "rounds": [
+            {
+              "step": 1,
+              "bytes_before": 3121,
+              "bytes_after": 3121,
+              "exchanges_removed": 0,
+              "exchanges_retained": 0,
+              "over_budget": false
+            },
+            {
+              "step": 2,
+              "bytes_before": 3602,
+              "bytes_after": 3602,
+              "exchanges_removed": 0,
+              "exchanges_retained": 1,
+              "over_budget": false
+            },
+            {
+              "step": 3,
+              "bytes_before": 4108,
+              "bytes_after": 4108,
+              "exchanges_removed": 0,
+              "exchanges_retained": 2,
+              "over_budget": false
+            }
+          ]
+        }
+      },
+      "draft_count": 0
+    },
+    {
+      "phase": "resume",
+      "options": [
+        "--evidence",
+        "examples/clarification.evidence.json"
+      ],
+      "result": {
+        "material_id": "M02",
+        "requested_slot": "2026-11-15T18:00+08:00",
+        "confirmed_slot": "2026-11-15T18:00+08:00",
+        "status": "saved",
+        "audit_status": "passed",
+        "risk_reasons": [],
+        "audit_evidence": [
+          {
+            "field": "rights_cleared",
+            "source_id": "E02"
+          }
+        ],
+        "suggested_slot": "2026-11-15T18:00+08:00",
+        "pending_items": [],
+        "draft": {
+          "status": "saved",
+          "draft_id": "cb8bfbe4-2f38-41b8-b5f8-b489e42cf085",
+          "slot": "2026-11-15T18:00+08:00"
+        },
+        "incomplete_reason": null,
+        "model": "MiniMax-M3.1-Flash",
+        "trace": [
+          {
+            "step": 1,
+            "actor": "model",
+            "action": "read_material",
+            "arguments": {},
+            "result": {
+              "status": "found",
+              "material_id": "M02",
+              "metadata": {
+                "title": "字幕功能入门",
+                "brand_reviewed": true
+              }
+            },
+            "decision_basis": "读取素材 M02 元数据以进行审核",
+            "next_action": "check_rules"
+          },
+          {
+            "step": 2,
+            "actor": "model",
+            "action": "check_rules",
+            "arguments": {},
+            "result": {
+              "status": "insufficient_info",
+              "findings": [
+                {
+                  "rule_id": "R01",
+                  "kind": "missing_or_invalid",
+                  "field": "rights_cleared",
+                  "reason": "请补齐或修正 rights_cleared"
+                }
+              ],
+              "supplement_available": true
+            },
+            "decision_basis": "基于元数据检查审核规则",
+            "next_action": "lookup_evidence"
+          },
+          {
+            "step": 3,
+            "actor": "model",
+            "action": "lookup_evidence",
+            "arguments": {},
+            "result": {
+              "status": "supplemented",
+              "sources": [
+                {
+                  "field": "rights_cleared",
+                  "source_id": "E02"
+                }
+              ],
+              "source_count": 1
+            },
+            "decision_basis": "rights_cleared 缺失，先从证据库补查",
+            "next_action": "check_rules"
+          },
+          {
+            "step": 4,
+            "actor": "model",
+            "action": "check_rules",
+            "arguments": {},
+            "result": {
+              "status": "passed",
+              "findings": []
+            },
+            "decision_basis": "补查后重新检查审核规则",
+            "next_action": "query_slots"
+          },
+          {
+            "step": 5,
+            "actor": "model",
+            "action": "query_slots",
+            "arguments": {
+              "mode": "exact"
+            },
+            "result": {
+              "status": "ok",
+              "mode": "exact",
+              "available": [
+                "2026-11-15T18:00+08:00"
+              ],
+              "occupied": []
+            },
+            "decision_basis": "查询已确认时段是否空闲",
+            "next_action": "save_draft"
+          },
+          {
+            "step": 6,
+            "actor": "model",
+            "action": "save_draft",
+            "arguments": {
+              "slot": "2026-11-15T18:00+08:00"
+            },
+            "result": {
+              "status": "saved",
+              "draft_id": "cb8bfbe4-2f38-41b8-b5f8-b489e42cf085",
+              "slot": "2026-11-15T18:00+08:00"
+            },
+            "decision_basis": "审核通过且授权时段空闲，保存草稿",
+            "next_action": "finish"
+          },
+          {
+            "step": 7,
+            "actor": "model",
+            "action": "finish",
+            "arguments": {},
+            "result": {
+              "status": "saved"
+            },
+            "decision_basis": "素材审核通过并已在确认时段保存草稿，任务结束",
+            "next_action": null
+          }
+        ],
+        "context": {
+          "budget_bytes": 24576,
+          "compact_at_bytes": 12288,
+          "observation_limit_bytes": 2048,
+          "rounds": [
+            {
+              "step": 1,
+              "bytes_before": 3121,
+              "bytes_after": 3121,
+              "exchanges_removed": 0,
+              "exchanges_retained": 0,
+              "over_budget": false
+            },
+            {
+              "step": 2,
+              "bytes_before": 3525,
+              "bytes_after": 3525,
+              "exchanges_removed": 0,
+              "exchanges_retained": 1,
+              "over_budget": false
+            },
+            {
+              "step": 3,
+              "bytes_before": 4012,
+              "bytes_after": 4012,
+              "exchanges_removed": 0,
+              "exchanges_retained": 2,
+              "over_budget": false
+            },
+            {
+              "step": 4,
+              "bytes_before": 4419,
+              "bytes_after": 4419,
+              "exchanges_removed": 0,
+              "exchanges_retained": 3,
+              "over_budget": false
+            },
+            {
+              "step": 5,
+              "bytes_before": 4734,
+              "bytes_after": 4734,
+              "exchanges_removed": 0,
+              "exchanges_retained": 4,
+              "over_budget": false
+            },
+            {
+              "step": 6,
+              "bytes_before": 5122,
+              "bytes_after": 5122,
+              "exchanges_removed": 0,
+              "exchanges_retained": 5,
+              "over_budget": false
+            },
+            {
+              "step": 7,
+              "bytes_before": 5556,
+              "bytes_after": 5556,
+              "exchanges_removed": 0,
+              "exchanges_retained": 6,
+              "over_budget": false
+            }
+          ]
+        }
+      },
+      "draft_count": 1
+    }
+  ]
+}

@@ -1,0 +1,4600 @@
+{
+  "run_at": "2026-11-10T16:22:26+08:00",
+  "mode": "minimax",
+  "source_revision": "e4eea8642001dd0de1915e8897cd0f01ff8d69a6",
+  "request_interval_seconds": 3.2,
+  "models": [
+    "MiniMax-M3.1-Flash"
+  ],
+  "cases_passed": 18,
+  "cases_total": 18,
+  "cases": [
+    {
+      "case": "normal-1",
+      "input": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00"
+        }
+      ],
+      "calendar": {
+        "occupied": [],
+        "alternative_times": [
+          "19:00",
+          "20:00"
+        ]
+      },
+      "cli_flags": [],
+      "passed": true,
+      "failures": [],
+      "elapsed_seconds": 18.13,
+      "expected": [
+        {
+          "status": "saved",
+          "action": "save_draft",
+          "slot": "2026-11-15T18:00+08:00",
+          "evidence": null
+        }
+      ],
+      "expected_database_slots": [
+        "2026-11-15T18:00+08:00"
+      ],
+      "actual": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T18:00+08:00",
+          "status": "saved",
+          "audit_status": "passed",
+          "risk_reasons": [],
+          "audit_evidence": [],
+          "evidence_conflicts": [],
+          "suggested_slot": "2026-11-15T18:00+08:00",
+          "pending_items": [],
+          "draft": {
+            "status": "saved",
+            "draft_id": "e7355dac-e31a-4441-8aaf-ee8a5333a1c3",
+            "slot": "2026-11-15T18:00+08:00"
+          },
+          "incomplete_reason": null,
+          "model": "MiniMax-M3.1-Flash",
+          "trace": [
+            {
+              "step": 1,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M01",
+                "metadata": {
+                  "title": "剪辑快捷键教程",
+                  "rights_cleared": true,
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "读取素材元数据以进行规则审核",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 2,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "findings": []
+              },
+              "decision_basis": "依据素材元数据检查审核规则",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 3,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "exact"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "exact",
+                "available": [
+                  "2026-11-15T18:00+08:00"
+                ],
+                "occupied": []
+              },
+              "decision_basis": "查询用户授权时段 2026-11-15T18:00+08:00 是否空闲",
+              "next_action": "save_draft"
+            },
+            {
+              "step": 4,
+              "actor": "model",
+              "action": "save_draft",
+              "arguments": {
+                "slot": "2026-11-15T18:00+08:00"
+              },
+              "result": {
+                "status": "saved",
+                "draft_id": "e7355dac-e31a-4441-8aaf-ee8a5333a1c3",
+                "slot": "2026-11-15T18:00+08:00"
+              },
+              "decision_basis": "审核通过且授权时段空闲，保存草稿",
+              "next_action": "finish"
+            },
+            {
+              "step": 5,
+              "actor": "model",
+              "action": "finish",
+              "arguments": {},
+              "result": {
+                "status": "saved"
+              },
+              "decision_basis": "素材 M01 规则审核通过，已在授权时段 2026-11-15T18:00+08:00 保存草稿（draft_id: e7355dac-e31a-4441-8aaf-ee8a5333a1c3）",
+              "next_action": null
+            }
+          ],
+          "context": {
+            "budget_bytes": 24576,
+            "compact_at_bytes": 12288,
+            "observation_limit_bytes": 2048,
+            "rounds": [
+              {
+                "step": 1,
+                "bytes_before": 3215,
+                "bytes_after": 3215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 0,
+                "over_budget": false
+              },
+              {
+                "step": 2,
+                "bytes_before": 3647,
+                "bytes_after": 3647,
+                "exchanges_removed": 0,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 3,
+                "bytes_before": 3968,
+                "bytes_after": 3968,
+                "exchanges_removed": 0,
+                "exchanges_retained": 2,
+                "over_budget": false
+              },
+              {
+                "step": 4,
+                "bytes_before": 4383,
+                "bytes_after": 4383,
+                "exchanges_removed": 0,
+                "exchanges_retained": 3,
+                "over_budget": false
+              },
+              {
+                "step": 5,
+                "bytes_before": 4817,
+                "bytes_after": 4817,
+                "exchanges_removed": 0,
+                "exchanges_retained": 4,
+                "over_budget": false
+              }
+            ]
+          }
+        }
+      ],
+      "database_rows": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "slot": "2026-11-15T18:00+08:00",
+          "draft_id": "e7355dac-e31a-4441-8aaf-ee8a5333a1c3"
+        }
+      ],
+      "confirmation_rows": [],
+      "phases": [
+        {
+          "input": [
+            {
+              "material_id": "M01",
+              "requested_slot": "2026-11-15T18:00+08:00"
+            }
+          ],
+          "cli_flags": [],
+          "draft_count": 1
+        }
+      ]
+    },
+    {
+      "case": "normal-2",
+      "input": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00"
+        }
+      ],
+      "calendar": {
+        "occupied": [],
+        "alternative_times": [
+          "19:00",
+          "20:00"
+        ]
+      },
+      "cli_flags": [],
+      "passed": true,
+      "failures": [],
+      "elapsed_seconds": 20.34,
+      "expected": [
+        {
+          "status": "saved",
+          "action": "save_draft",
+          "slot": "2026-11-15T18:00+08:00",
+          "evidence": null
+        }
+      ],
+      "expected_database_slots": [
+        "2026-11-15T18:00+08:00"
+      ],
+      "actual": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T18:00+08:00",
+          "status": "saved",
+          "audit_status": "passed",
+          "risk_reasons": [],
+          "audit_evidence": [],
+          "evidence_conflicts": [],
+          "suggested_slot": "2026-11-15T18:00+08:00",
+          "pending_items": [],
+          "draft": {
+            "status": "saved",
+            "draft_id": "d739efa3-7a1a-4221-bada-2f1b87236e20",
+            "slot": "2026-11-15T18:00+08:00"
+          },
+          "incomplete_reason": null,
+          "model": "MiniMax-M3.1-Flash",
+          "trace": [
+            {
+              "step": 1,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M01",
+                "metadata": {
+                  "title": "剪辑快捷键教程",
+                  "rights_cleared": true,
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "读取素材元数据以进行审核前检查",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 2,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "findings": []
+              },
+              "decision_basis": "素材元数据已读取，检查版权与品牌审核规则",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 3,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "exact"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "exact",
+                "available": [
+                  "2026-11-15T18:00+08:00"
+                ],
+                "occupied": []
+              },
+              "decision_basis": "审核通过，查询用户授权时段 2026-11-15T18:00+08:00 的可用性",
+              "next_action": "save_draft"
+            },
+            {
+              "step": 4,
+              "actor": "model",
+              "action": "save_draft",
+              "arguments": {
+                "slot": "2026-11-15T18:00+08:00"
+              },
+              "result": {
+                "status": "saved",
+                "draft_id": "d739efa3-7a1a-4221-bada-2f1b87236e20",
+                "slot": "2026-11-15T18:00+08:00"
+              },
+              "decision_basis": "授权时段 2026-11-15T18:00+08:00 查询显示空闲，保存草稿",
+              "next_action": "finish"
+            },
+            {
+              "step": 5,
+              "actor": "model",
+              "action": "finish",
+              "arguments": {},
+              "result": {
+                "status": "saved"
+              },
+              "decision_basis": "素材 M01 审核通过且授权时段空闲，草稿已成功保存（draft_id: d739efa3-7a1a-4221-bada-2f1b87236e20）",
+              "next_action": null
+            }
+          ],
+          "context": {
+            "budget_bytes": 24576,
+            "compact_at_bytes": 12288,
+            "observation_limit_bytes": 2048,
+            "rounds": [
+              {
+                "step": 1,
+                "bytes_before": 3215,
+                "bytes_after": 3215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 0,
+                "over_budget": false
+              },
+              {
+                "step": 2,
+                "bytes_before": 3910,
+                "bytes_after": 3910,
+                "exchanges_removed": 0,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 3,
+                "bytes_before": 4379,
+                "bytes_after": 4379,
+                "exchanges_removed": 0,
+                "exchanges_retained": 2,
+                "over_budget": false
+              },
+              {
+                "step": 4,
+                "bytes_before": 4811,
+                "bytes_after": 4811,
+                "exchanges_removed": 0,
+                "exchanges_retained": 3,
+                "over_budget": false
+              },
+              {
+                "step": 5,
+                "bytes_before": 5268,
+                "bytes_after": 5268,
+                "exchanges_removed": 0,
+                "exchanges_retained": 4,
+                "over_budget": false
+              }
+            ]
+          }
+        }
+      ],
+      "database_rows": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "slot": "2026-11-15T18:00+08:00",
+          "draft_id": "d739efa3-7a1a-4221-bada-2f1b87236e20"
+        }
+      ],
+      "confirmation_rows": [],
+      "phases": [
+        {
+          "input": [
+            {
+              "material_id": "M01",
+              "requested_slot": "2026-11-15T18:00+08:00"
+            }
+          ],
+          "cli_flags": [],
+          "draft_count": 1
+        }
+      ]
+    },
+    {
+      "case": "normal-3",
+      "input": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00"
+        }
+      ],
+      "calendar": {
+        "occupied": [],
+        "alternative_times": [
+          "19:00",
+          "20:00"
+        ]
+      },
+      "cli_flags": [],
+      "passed": true,
+      "failures": [],
+      "elapsed_seconds": 18.98,
+      "expected": [
+        {
+          "status": "saved",
+          "action": "save_draft",
+          "slot": "2026-11-15T18:00+08:00",
+          "evidence": null
+        }
+      ],
+      "expected_database_slots": [
+        "2026-11-15T18:00+08:00"
+      ],
+      "actual": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T18:00+08:00",
+          "status": "saved",
+          "audit_status": "passed",
+          "risk_reasons": [],
+          "audit_evidence": [],
+          "evidence_conflicts": [],
+          "suggested_slot": "2026-11-15T18:00+08:00",
+          "pending_items": [],
+          "draft": {
+            "status": "saved",
+            "draft_id": "0c3cd1df-edd9-44f5-8000-e280e2475d5a",
+            "slot": "2026-11-15T18:00+08:00"
+          },
+          "incomplete_reason": null,
+          "model": "MiniMax-M3.1-Flash",
+          "trace": [
+            {
+              "step": 1,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M01",
+                "metadata": {
+                  "title": "剪辑快捷键教程",
+                  "rights_cleared": true,
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "读取素材元数据以进行审核",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 2,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "findings": []
+              },
+              "decision_basis": "依据素材元数据检查审核规则",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 3,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "exact"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "exact",
+                "available": [
+                  "2026-11-15T18:00+08:00"
+                ],
+                "occupied": []
+              },
+              "decision_basis": "查询用户授权时段是否可用",
+              "next_action": "save_draft"
+            },
+            {
+              "step": 4,
+              "actor": "model",
+              "action": "save_draft",
+              "arguments": {
+                "slot": "2026-11-15T18:00+08:00"
+              },
+              "result": {
+                "status": "saved",
+                "draft_id": "0c3cd1df-edd9-44f5-8000-e280e2475d5a",
+                "slot": "2026-11-15T18:00+08:00"
+              },
+              "decision_basis": "审核通过且授权时段空闲，保存草稿",
+              "next_action": "finish"
+            },
+            {
+              "step": 5,
+              "actor": "model",
+              "action": "finish",
+              "arguments": {},
+              "result": {
+                "status": "saved"
+              },
+              "decision_basis": "素材审核通过，已按授权时段保存草稿",
+              "next_action": null
+            }
+          ],
+          "context": {
+            "budget_bytes": 24576,
+            "compact_at_bytes": 12288,
+            "observation_limit_bytes": 2048,
+            "rounds": [
+              {
+                "step": 1,
+                "bytes_before": 3215,
+                "bytes_after": 3215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 0,
+                "over_budget": false
+              },
+              {
+                "step": 2,
+                "bytes_before": 3828,
+                "bytes_after": 3828,
+                "exchanges_removed": 0,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 3,
+                "bytes_before": 4151,
+                "bytes_after": 4151,
+                "exchanges_removed": 0,
+                "exchanges_retained": 2,
+                "over_budget": false
+              },
+              {
+                "step": 4,
+                "bytes_before": 4544,
+                "bytes_after": 4544,
+                "exchanges_removed": 0,
+                "exchanges_retained": 3,
+                "over_budget": false
+              },
+              {
+                "step": 5,
+                "bytes_before": 4980,
+                "bytes_after": 4980,
+                "exchanges_removed": 0,
+                "exchanges_retained": 4,
+                "over_budget": false
+              }
+            ]
+          }
+        }
+      ],
+      "database_rows": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "slot": "2026-11-15T18:00+08:00",
+          "draft_id": "0c3cd1df-edd9-44f5-8000-e280e2475d5a"
+        }
+      ],
+      "confirmation_rows": [],
+      "phases": [
+        {
+          "input": [
+            {
+              "material_id": "M01",
+              "requested_slot": "2026-11-15T18:00+08:00"
+            }
+          ],
+          "cli_flags": [],
+          "draft_count": 1
+        }
+      ]
+    },
+    {
+      "case": "conflict-1",
+      "input": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00"
+        }
+      ],
+      "calendar": {
+        "occupied": [
+          "2026-11-15T18:00+08:00",
+          "2026-11-15T20:00+08:00"
+        ],
+        "alternative_times": [
+          "19:00",
+          "20:00"
+        ]
+      },
+      "cli_flags": [],
+      "passed": true,
+      "failures": [],
+      "elapsed_seconds": 23.53,
+      "expected": [
+        {
+          "status": "needs_confirmation",
+          "action": "alternatives",
+          "slot": "2026-11-15T19:00+08:00",
+          "evidence": null
+        }
+      ],
+      "expected_database_slots": [],
+      "actual": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T18:00+08:00",
+          "status": "needs_confirmation",
+          "audit_status": "passed",
+          "risk_reasons": [],
+          "audit_evidence": [],
+          "evidence_conflicts": [],
+          "suggested_slot": "2026-11-15T19:00+08:00",
+          "pending_items": [
+            "请确认改期至 2026-11-15T19:00+08:00"
+          ],
+          "draft": {
+            "status": "not_attempted"
+          },
+          "incomplete_reason": null,
+          "confirmation": {
+            "status": "pending",
+            "confirmation_id": "304ade2f-37f2-480a-890c-642e28c9678e",
+            "slot": "2026-11-15T19:00+08:00"
+          },
+          "model": "MiniMax-M3.1-Flash",
+          "trace": [
+            {
+              "step": 1,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M01",
+                "metadata": {
+                  "title": "剪辑快捷键教程",
+                  "rights_cleared": true,
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "读取素材 M01 的元数据以进行审核",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 2,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "findings": []
+              },
+              "decision_basis": "检查已读取的素材元数据是否符合审核规则",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 3,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "exact"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "exact",
+                "available": [],
+                "occupied": [
+                  "2026-11-15T18:00+08:00"
+                ]
+              },
+              "decision_basis": "查询用户授权时段 2026-11-15T18:00+08:00 的可用性",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 4,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "alternatives"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "alternatives",
+                "available": [
+                  "2026-11-15T19:00+08:00"
+                ],
+                "occupied": [
+                  "2026-11-15T20:00+08:00"
+                ]
+              },
+              "decision_basis": "授权时段已被占用，查询同日替代时段",
+              "next_action": "finish"
+            },
+            {
+              "step": 5,
+              "actor": "model",
+              "action": "finish",
+              "arguments": {
+                "proposed_slot": "2026-11-15T19:00+08:00"
+              },
+              "result": {
+                "status": "needs_confirmation",
+                "confirmation": {
+                  "status": "pending",
+                  "confirmation_id": "304ade2f-37f2-480a-890c-642e28c9678e",
+                  "slot": "2026-11-15T19:00+08:00"
+                }
+              },
+              "decision_basis": "授权时段 2026-11-15T18:00+08:00 已被占用，已查到同日空闲候选 2026-11-15T19:00+08:00，等待用户确认改期",
+              "next_action": null
+            }
+          ],
+          "context": {
+            "budget_bytes": 24576,
+            "compact_at_bytes": 12288,
+            "observation_limit_bytes": 2048,
+            "rounds": [
+              {
+                "step": 1,
+                "bytes_before": 3215,
+                "bytes_after": 3215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 0,
+                "over_budget": false
+              },
+              {
+                "step": 2,
+                "bytes_before": 3790,
+                "bytes_after": 3790,
+                "exchanges_removed": 0,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 3,
+                "bytes_before": 4131,
+                "bytes_after": 4131,
+                "exchanges_removed": 0,
+                "exchanges_retained": 2,
+                "over_budget": false
+              },
+              {
+                "step": 4,
+                "bytes_before": 4548,
+                "bytes_after": 4548,
+                "exchanges_removed": 0,
+                "exchanges_retained": 3,
+                "over_budget": false
+              },
+              {
+                "step": 5,
+                "bytes_before": 4996,
+                "bytes_after": 4996,
+                "exchanges_removed": 0,
+                "exchanges_retained": 4,
+                "over_budget": false
+              }
+            ]
+          }
+        }
+      ],
+      "database_rows": [],
+      "confirmation_rows": [
+        {
+          "confirmation_id": "304ade2f-37f2-480a-890c-642e28c9678e",
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "slot": "2026-11-15T19:00+08:00",
+          "draft_id": null
+        }
+      ],
+      "phases": [
+        {
+          "input": [
+            {
+              "material_id": "M01",
+              "requested_slot": "2026-11-15T18:00+08:00"
+            }
+          ],
+          "cli_flags": [],
+          "draft_count": 0
+        }
+      ]
+    },
+    {
+      "case": "conflict-2",
+      "input": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00"
+        }
+      ],
+      "calendar": {
+        "occupied": [
+          "2026-11-15T18:00+08:00",
+          "2026-11-15T20:00+08:00"
+        ],
+        "alternative_times": [
+          "19:00",
+          "20:00"
+        ]
+      },
+      "cli_flags": [],
+      "passed": true,
+      "failures": [],
+      "elapsed_seconds": 17.96,
+      "expected": [
+        {
+          "status": "needs_confirmation",
+          "action": "alternatives",
+          "slot": "2026-11-15T19:00+08:00",
+          "evidence": null
+        }
+      ],
+      "expected_database_slots": [],
+      "actual": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T18:00+08:00",
+          "status": "needs_confirmation",
+          "audit_status": "passed",
+          "risk_reasons": [],
+          "audit_evidence": [],
+          "evidence_conflicts": [],
+          "suggested_slot": "2026-11-15T19:00+08:00",
+          "pending_items": [
+            "请确认改期至 2026-11-15T19:00+08:00"
+          ],
+          "draft": {
+            "status": "not_attempted"
+          },
+          "incomplete_reason": null,
+          "confirmation": {
+            "status": "pending",
+            "confirmation_id": "1fff194e-b990-45f3-b16a-1833c0946a77",
+            "slot": "2026-11-15T19:00+08:00"
+          },
+          "model": "MiniMax-M3.1-Flash",
+          "trace": [
+            {
+              "step": 1,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M01",
+                "metadata": {
+                  "title": "剪辑快捷键教程",
+                  "rights_cleared": true,
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "读取素材 M01 的元数据以进行规则审核",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 2,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "findings": []
+              },
+              "decision_basis": "根据素材元数据检查审核规则",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 3,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "exact"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "exact",
+                "available": [],
+                "occupied": [
+                  "2026-11-15T18:00+08:00"
+                ]
+              },
+              "decision_basis": "查询用户授权的确切时段 2026-11-15T18:00+08:00 是否空闲",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 4,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "alternatives"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "alternatives",
+                "available": [
+                  "2026-11-15T19:00+08:00"
+                ],
+                "occupied": [
+                  "2026-11-15T20:00+08:00"
+                ]
+              },
+              "decision_basis": "原时段已占用，查询同日替代空闲时段",
+              "next_action": "finish"
+            },
+            {
+              "step": 5,
+              "actor": "model",
+              "action": "finish",
+              "arguments": {
+                "proposed_slot": "2026-11-15T19:00+08:00"
+              },
+              "result": {
+                "status": "needs_confirmation",
+                "confirmation": {
+                  "status": "pending",
+                  "confirmation_id": "1fff194e-b990-45f3-b16a-1833c0946a77",
+                  "slot": "2026-11-15T19:00+08:00"
+                }
+              },
+              "decision_basis": "素材 M01 审核通过，但原授权时段 2026-11-15T18:00+08:00 已被占用，未保存草稿；已查到同日空闲候选时段 2026-11-15T19:00+08:00，等待用户确认后再保存草稿",
+              "next_action": null
+            }
+          ],
+          "context": {
+            "budget_bytes": 24576,
+            "compact_at_bytes": 12288,
+            "observation_limit_bytes": 2048,
+            "rounds": [
+              {
+                "step": 1,
+                "bytes_before": 3215,
+                "bytes_after": 3215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 0,
+                "over_budget": false
+              },
+              {
+                "step": 2,
+                "bytes_before": 3725,
+                "bytes_after": 3725,
+                "exchanges_removed": 0,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 3,
+                "bytes_before": 4046,
+                "bytes_after": 4046,
+                "exchanges_removed": 0,
+                "exchanges_retained": 2,
+                "over_budget": false
+              },
+              {
+                "step": 4,
+                "bytes_before": 4687,
+                "bytes_after": 4687,
+                "exchanges_removed": 0,
+                "exchanges_retained": 3,
+                "over_budget": false
+              },
+              {
+                "step": 5,
+                "bytes_before": 5133,
+                "bytes_after": 5133,
+                "exchanges_removed": 0,
+                "exchanges_retained": 4,
+                "over_budget": false
+              }
+            ]
+          }
+        }
+      ],
+      "database_rows": [],
+      "confirmation_rows": [
+        {
+          "confirmation_id": "1fff194e-b990-45f3-b16a-1833c0946a77",
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "slot": "2026-11-15T19:00+08:00",
+          "draft_id": null
+        }
+      ],
+      "phases": [
+        {
+          "input": [
+            {
+              "material_id": "M01",
+              "requested_slot": "2026-11-15T18:00+08:00"
+            }
+          ],
+          "cli_flags": [],
+          "draft_count": 0
+        }
+      ]
+    },
+    {
+      "case": "conflict-3",
+      "input": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00"
+        }
+      ],
+      "calendar": {
+        "occupied": [
+          "2026-11-15T18:00+08:00",
+          "2026-11-15T20:00+08:00"
+        ],
+        "alternative_times": [
+          "19:00",
+          "20:00"
+        ]
+      },
+      "cli_flags": [],
+      "passed": true,
+      "failures": [],
+      "elapsed_seconds": 17.88,
+      "expected": [
+        {
+          "status": "needs_confirmation",
+          "action": "alternatives",
+          "slot": "2026-11-15T19:00+08:00",
+          "evidence": null
+        }
+      ],
+      "expected_database_slots": [],
+      "actual": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T18:00+08:00",
+          "status": "needs_confirmation",
+          "audit_status": "passed",
+          "risk_reasons": [],
+          "audit_evidence": [],
+          "evidence_conflicts": [],
+          "suggested_slot": "2026-11-15T19:00+08:00",
+          "pending_items": [
+            "请确认改期至 2026-11-15T19:00+08:00"
+          ],
+          "draft": {
+            "status": "not_attempted"
+          },
+          "incomplete_reason": null,
+          "confirmation": {
+            "status": "pending",
+            "confirmation_id": "b44a50f2-c24e-4fcf-a37f-d376c07e3333",
+            "slot": "2026-11-15T19:00+08:00"
+          },
+          "model": "MiniMax-M3.1-Flash",
+          "trace": [
+            {
+              "step": 1,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M01",
+                "metadata": {
+                  "title": "剪辑快捷键教程",
+                  "rights_cleared": true,
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "读取素材元数据以进行审核",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 2,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "findings": []
+              },
+              "decision_basis": "依据已读元数据检查审核规则",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 3,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "exact"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "exact",
+                "available": [],
+                "occupied": [
+                  "2026-11-15T18:00+08:00"
+                ]
+              },
+              "decision_basis": "审核通过，查询用户授权时段",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 4,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "alternatives"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "alternatives",
+                "available": [
+                  "2026-11-15T19:00+08:00"
+                ],
+                "occupied": [
+                  "2026-11-15T20:00+08:00"
+                ]
+              },
+              "decision_basis": "原时段被占用，查询同日替代时段",
+              "next_action": "finish"
+            },
+            {
+              "step": 5,
+              "actor": "model",
+              "action": "finish",
+              "arguments": {
+                "proposed_slot": "2026-11-15T19:00+08:00"
+              },
+              "result": {
+                "status": "needs_confirmation",
+                "confirmation": {
+                  "status": "pending",
+                  "confirmation_id": "b44a50f2-c24e-4fcf-a37f-d376c07e3333",
+                  "slot": "2026-11-15T19:00+08:00"
+                }
+              },
+              "decision_basis": "审核通过但授权时段 2026-11-15T18:00+08:00 已被占用，给出同日空闲候选 2026-11-15T19:00+08:00 等待用户确认",
+              "next_action": null
+            }
+          ],
+          "context": {
+            "budget_bytes": 24576,
+            "compact_at_bytes": 12288,
+            "observation_limit_bytes": 2048,
+            "rounds": [
+              {
+                "step": 1,
+                "bytes_before": 3215,
+                "bytes_after": 3215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 0,
+                "over_budget": false
+              },
+              {
+                "step": 2,
+                "bytes_before": 3665,
+                "bytes_after": 3665,
+                "exchanges_removed": 0,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 3,
+                "bytes_before": 4010,
+                "bytes_after": 4010,
+                "exchanges_removed": 0,
+                "exchanges_retained": 2,
+                "over_budget": false
+              },
+              {
+                "step": 4,
+                "bytes_before": 4428,
+                "bytes_after": 4428,
+                "exchanges_removed": 0,
+                "exchanges_retained": 3,
+                "over_budget": false
+              },
+              {
+                "step": 5,
+                "bytes_before": 4892,
+                "bytes_after": 4892,
+                "exchanges_removed": 0,
+                "exchanges_retained": 4,
+                "over_budget": false
+              }
+            ]
+          }
+        }
+      ],
+      "database_rows": [],
+      "confirmation_rows": [
+        {
+          "confirmation_id": "b44a50f2-c24e-4fcf-a37f-d376c07e3333",
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "slot": "2026-11-15T19:00+08:00",
+          "draft_id": null
+        }
+      ],
+      "phases": [
+        {
+          "input": [
+            {
+              "material_id": "M01",
+              "requested_slot": "2026-11-15T18:00+08:00"
+            }
+          ],
+          "cli_flags": [],
+          "draft_count": 0
+        }
+      ]
+    },
+    {
+      "case": "shift-candidate",
+      "input": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00"
+        }
+      ],
+      "calendar": {
+        "occupied": [
+          "2026-11-15T18:00+08:00",
+          "2026-11-15T19:00+08:00"
+        ],
+        "alternative_times": [
+          "19:00",
+          "20:00"
+        ]
+      },
+      "cli_flags": [],
+      "passed": true,
+      "failures": [],
+      "elapsed_seconds": 18.57,
+      "expected": [
+        {
+          "status": "needs_confirmation",
+          "action": "alternatives",
+          "slot": "2026-11-15T20:00+08:00",
+          "evidence": null
+        }
+      ],
+      "expected_database_slots": [],
+      "actual": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T18:00+08:00",
+          "status": "needs_confirmation",
+          "audit_status": "passed",
+          "risk_reasons": [],
+          "audit_evidence": [],
+          "evidence_conflicts": [],
+          "suggested_slot": "2026-11-15T20:00+08:00",
+          "pending_items": [
+            "请确认改期至 2026-11-15T20:00+08:00"
+          ],
+          "draft": {
+            "status": "not_attempted"
+          },
+          "incomplete_reason": null,
+          "confirmation": {
+            "status": "pending",
+            "confirmation_id": "e51d2fe9-bf35-49dc-b7b5-42bb6b56411b",
+            "slot": "2026-11-15T20:00+08:00"
+          },
+          "model": "MiniMax-M3.1-Flash",
+          "trace": [
+            {
+              "step": 1,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M01",
+                "metadata": {
+                  "title": "剪辑快捷键教程",
+                  "rights_cleared": true,
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "读取素材元数据以进行审核规则检查",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 2,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "findings": []
+              },
+              "decision_basis": "基于已读取的元数据检查审核规则",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 3,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "exact"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "exact",
+                "available": [],
+                "occupied": [
+                  "2026-11-15T18:00+08:00"
+                ]
+              },
+              "decision_basis": "审核通过，查询用户授权时段的空闲情况",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 4,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "alternatives"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "alternatives",
+                "available": [
+                  "2026-11-15T20:00+08:00"
+                ],
+                "occupied": [
+                  "2026-11-15T19:00+08:00"
+                ]
+              },
+              "decision_basis": "授权时段已被占用，查询同日替代时段",
+              "next_action": "finish"
+            },
+            {
+              "step": 5,
+              "actor": "model",
+              "action": "finish",
+              "arguments": {
+                "proposed_slot": "2026-11-15T20:00+08:00"
+              },
+              "result": {
+                "status": "needs_confirmation",
+                "confirmation": {
+                  "status": "pending",
+                  "confirmation_id": "e51d2fe9-bf35-49dc-b7b5-42bb6b56411b",
+                  "slot": "2026-11-15T20:00+08:00"
+                }
+              },
+              "decision_basis": "素材 M01 审核通过，但授权时段 2026-11-15T18:00+08:00 已被占用，无法保存草稿；同日可用候选为 2026-11-15T20:00+08:00，请确认是否改期（确认后才可保存草稿）。",
+              "next_action": null
+            }
+          ],
+          "context": {
+            "budget_bytes": 24576,
+            "compact_at_bytes": 12288,
+            "observation_limit_bytes": 2048,
+            "rounds": [
+              {
+                "step": 1,
+                "bytes_before": 3215,
+                "bytes_after": 3215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 0,
+                "over_budget": false
+              },
+              {
+                "step": 2,
+                "bytes_before": 3714,
+                "bytes_after": 3714,
+                "exchanges_removed": 0,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 3,
+                "bytes_before": 4041,
+                "bytes_after": 4041,
+                "exchanges_removed": 0,
+                "exchanges_retained": 2,
+                "over_budget": false
+              },
+              {
+                "step": 4,
+                "bytes_before": 4450,
+                "bytes_after": 4450,
+                "exchanges_removed": 0,
+                "exchanges_retained": 3,
+                "over_budget": false
+              },
+              {
+                "step": 5,
+                "bytes_before": 4896,
+                "bytes_after": 4896,
+                "exchanges_removed": 0,
+                "exchanges_retained": 4,
+                "over_budget": false
+              }
+            ]
+          }
+        }
+      ],
+      "database_rows": [],
+      "confirmation_rows": [
+        {
+          "confirmation_id": "e51d2fe9-bf35-49dc-b7b5-42bb6b56411b",
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "slot": "2026-11-15T20:00+08:00",
+          "draft_id": null
+        }
+      ],
+      "phases": [
+        {
+          "input": [
+            {
+              "material_id": "M01",
+              "requested_slot": "2026-11-15T18:00+08:00"
+            }
+          ],
+          "cli_flags": [],
+          "draft_count": 0
+        }
+      ]
+    },
+    {
+      "case": "no-candidate",
+      "input": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00"
+        }
+      ],
+      "calendar": {
+        "occupied": [
+          "2026-11-15T18:00+08:00",
+          "2026-11-15T19:00+08:00",
+          "2026-11-15T20:00+08:00"
+        ],
+        "alternative_times": [
+          "19:00",
+          "20:00"
+        ]
+      },
+      "cli_flags": [],
+      "passed": true,
+      "failures": [],
+      "elapsed_seconds": 21.24,
+      "expected": [
+        {
+          "status": "slot_conflict",
+          "action": "alternatives",
+          "slot": null,
+          "evidence": null
+        }
+      ],
+      "expected_database_slots": [],
+      "actual": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T18:00+08:00",
+          "status": "slot_conflict",
+          "audit_status": "passed",
+          "risk_reasons": [],
+          "audit_evidence": [],
+          "evidence_conflicts": [],
+          "suggested_slot": null,
+          "pending_items": [
+            "请提供可接受的其他发布时间"
+          ],
+          "draft": {
+            "status": "not_attempted"
+          },
+          "incomplete_reason": null,
+          "model": "MiniMax-M3.1-Flash",
+          "trace": [
+            {
+              "step": 1,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M01",
+                "metadata": {
+                  "title": "剪辑快捷键教程",
+                  "rights_cleared": true,
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "读取素材 M01 的元数据以开始审核",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 2,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "findings": []
+              },
+              "decision_basis": "基于已读取的元数据检查审核规则",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 3,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "exact"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "exact",
+                "available": [],
+                "occupied": [
+                  "2026-11-15T18:00+08:00"
+                ]
+              },
+              "decision_basis": "查询用户授权时段 2026-11-15T18:00+08:00 是否空闲",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 4,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "alternatives"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "alternatives",
+                "available": [],
+                "occupied": [
+                  "2026-11-15T19:00+08:00",
+                  "2026-11-15T20:00+08:00"
+                ]
+              },
+              "decision_basis": "授权时段已被占用，查询同日替代时段",
+              "next_action": "finish"
+            },
+            {
+              "step": 5,
+              "actor": "model",
+              "action": "finish",
+              "arguments": {
+                "proposed_slot": ""
+              },
+              "result": {
+                "status": "slot_conflict"
+              },
+              "decision_basis": "审核通过，但授权时段 2026-11-15T18:00+08:00 已被占用，且同日 19:00、20:00 候选同样被占用，无可验证空闲的改期候选，因此未保存草稿，需操作者另行授权时段。",
+              "next_action": null
+            }
+          ],
+          "context": {
+            "budget_bytes": 24576,
+            "compact_at_bytes": 12288,
+            "observation_limit_bytes": 2048,
+            "rounds": [
+              {
+                "step": 1,
+                "bytes_before": 3215,
+                "bytes_after": 3215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 0,
+                "over_budget": false
+              },
+              {
+                "step": 2,
+                "bytes_before": 3790,
+                "bytes_after": 3790,
+                "exchanges_removed": 0,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 3,
+                "bytes_before": 4119,
+                "bytes_after": 4119,
+                "exchanges_removed": 0,
+                "exchanges_retained": 2,
+                "over_budget": false
+              },
+              {
+                "step": 4,
+                "bytes_before": 4536,
+                "bytes_after": 4536,
+                "exchanges_removed": 0,
+                "exchanges_retained": 3,
+                "over_budget": false
+              },
+              {
+                "step": 5,
+                "bytes_before": 4985,
+                "bytes_after": 4985,
+                "exchanges_removed": 0,
+                "exchanges_retained": 4,
+                "over_budget": false
+              }
+            ]
+          }
+        }
+      ],
+      "database_rows": [],
+      "confirmation_rows": [],
+      "phases": [
+        {
+          "input": [
+            {
+              "material_id": "M01",
+              "requested_slot": "2026-11-15T18:00+08:00"
+            }
+          ],
+          "cli_flags": [],
+          "draft_count": 0
+        }
+      ]
+    },
+    {
+      "case": "missing-and-answered",
+      "input": [
+        {
+          "material_id": "M02",
+          "requested_slot": "2026-11-15T18:00+08:00"
+        }
+      ],
+      "calendar": {
+        "occupied": [],
+        "alternative_times": [
+          "19:00",
+          "20:00"
+        ]
+      },
+      "cli_flags": [],
+      "passed": true,
+      "failures": [],
+      "elapsed_seconds": 38.46,
+      "expected": [
+        {
+          "status": "insufficient_info",
+          "action": "ask_user",
+          "slot": null,
+          "evidence": "rights_cleared"
+        },
+        {
+          "status": "saved",
+          "action": "lookup_evidence",
+          "slot": "2026-11-15T18:00+08:00",
+          "evidence": "E02"
+        }
+      ],
+      "expected_database_slots": [
+        "2026-11-15T18:00+08:00"
+      ],
+      "actual": [
+        {
+          "material_id": "M02",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T18:00+08:00",
+          "status": "insufficient_info",
+          "audit_status": "insufficient_info",
+          "risk_reasons": [],
+          "audit_evidence": [],
+          "evidence_conflicts": [],
+          "suggested_slot": null,
+          "pending_items": [
+            "请补齐或修正 rights_cleared"
+          ],
+          "draft": {
+            "status": "not_attempted"
+          },
+          "incomplete_reason": null,
+          "clarification": {
+            "questions": [
+              {
+                "field": "rights_cleared",
+                "rule_id": "R01",
+                "question": "这项素材的版权授权是否通过？请提供授权记录编号和审核结论。"
+              }
+            ],
+            "resume_option": "--evidence",
+            "resume_instruction": "补齐资料后，用相同请求和数据库重新运行审核。"
+          },
+          "model": "MiniMax-M3.1-Flash",
+          "trace": [
+            {
+              "step": 1,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M02",
+                "metadata": {
+                  "title": "字幕功能入门",
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "读取素材元数据以进行审核",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 2,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "insufficient_info",
+                "findings": [
+                  {
+                    "rule_id": "R01",
+                    "kind": "missing_or_invalid",
+                    "field": "rights_cleared",
+                    "reason": "请补齐或修正 rights_cleared"
+                  }
+                ],
+                "supplement_available": false
+              },
+              "decision_basis": "元数据已读取，检查审核规则",
+              "next_action": "ask_user"
+            },
+            {
+              "step": 3,
+              "actor": "model",
+              "action": "ask_user",
+              "arguments": {},
+              "result": {
+                "status": "insufficient_info",
+                "clarification": {
+                  "questions": [
+                    {
+                      "field": "rights_cleared",
+                      "rule_id": "R01",
+                      "question": "这项素材的版权授权是否通过？请提供授权记录编号和审核结论。"
+                    }
+                  ],
+                  "resume_option": "--evidence",
+                  "resume_instruction": "补齐资料后，用相同请求和数据库重新运行审核。"
+                }
+              },
+              "decision_basis": "规则检查发现 rights_cleared 缺失，且证据库无可补查资料，需向操作者索要",
+              "next_action": null
+            }
+          ],
+          "context": {
+            "budget_bytes": 24576,
+            "compact_at_bytes": 12288,
+            "observation_limit_bytes": 2048,
+            "rounds": [
+              {
+                "step": 1,
+                "bytes_before": 3215,
+                "bytes_after": 3215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 0,
+                "over_budget": false
+              },
+              {
+                "step": 2,
+                "bytes_before": 3753,
+                "bytes_after": 3753,
+                "exchanges_removed": 0,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 3,
+                "bytes_before": 4247,
+                "bytes_after": 4247,
+                "exchanges_removed": 0,
+                "exchanges_retained": 2,
+                "over_budget": false
+              }
+            ]
+          }
+        },
+        {
+          "material_id": "M02",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T18:00+08:00",
+          "status": "saved",
+          "audit_status": "passed",
+          "risk_reasons": [],
+          "audit_evidence": [
+            {
+              "field": "rights_cleared",
+              "source_id": "E02"
+            }
+          ],
+          "evidence_conflicts": [],
+          "suggested_slot": "2026-11-15T18:00+08:00",
+          "pending_items": [],
+          "draft": {
+            "status": "saved",
+            "draft_id": "de947f83-b815-4c13-8c2b-efe00550529a",
+            "slot": "2026-11-15T18:00+08:00"
+          },
+          "incomplete_reason": null,
+          "model": "MiniMax-M3.1-Flash",
+          "trace": [
+            {
+              "step": 1,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M02",
+                "metadata": {
+                  "title": "字幕功能入门",
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "读取素材 M02 的元数据以进行规则审核",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 2,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "insufficient_info",
+                "findings": [
+                  {
+                    "rule_id": "R01",
+                    "kind": "missing_or_invalid",
+                    "field": "rights_cleared",
+                    "reason": "请补齐或修正 rights_cleared"
+                  }
+                ],
+                "supplement_available": true
+              },
+              "decision_basis": "依据已读元数据检查审核规则",
+              "next_action": "lookup_evidence"
+            },
+            {
+              "step": 3,
+              "actor": "model",
+              "action": "lookup_evidence",
+              "arguments": {},
+              "result": {
+                "status": "supplemented",
+                "sources": [
+                  {
+                    "field": "rights_cleared",
+                    "source_id": "E02"
+                  }
+                ],
+                "source_count": 1
+              },
+              "decision_basis": "审核缺项 rights_cleared 可从本地证据库补查",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 4,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "findings": []
+              },
+              "decision_basis": "补查 rights_cleared 后重新检查审核规则",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 5,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "exact"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "exact",
+                "available": [
+                  "2026-11-15T18:00+08:00"
+                ],
+                "occupied": []
+              },
+              "decision_basis": "查询用户授权时段 2026-11-15T18:00+08:00 的空闲情况",
+              "next_action": "save_draft"
+            },
+            {
+              "step": 6,
+              "actor": "model",
+              "action": "save_draft",
+              "arguments": {
+                "slot": "2026-11-15T18:00+08:00"
+              },
+              "result": {
+                "status": "saved",
+                "draft_id": "de947f83-b815-4c13-8c2b-efe00550529a",
+                "slot": "2026-11-15T18:00+08:00"
+              },
+              "decision_basis": "审核通过且授权时段空闲，将素材保存为草稿",
+              "next_action": "finish"
+            },
+            {
+              "step": 7,
+              "actor": "model",
+              "action": "finish",
+              "arguments": {
+                "proposed_slot": "2026-11-15T18:00+08:00"
+              },
+              "result": {
+                "status": "saved"
+              },
+              "decision_basis": "素材 M02 审核通过，已在授权时段 2026-11-15T18:00+08:00 保存草稿 de947f83-b815-4c13-8c2b-efe00550529a",
+              "next_action": null
+            }
+          ],
+          "context": {
+            "budget_bytes": 24576,
+            "compact_at_bytes": 12288,
+            "observation_limit_bytes": 2048,
+            "rounds": [
+              {
+                "step": 1,
+                "bytes_before": 3215,
+                "bytes_after": 3215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 0,
+                "over_budget": false
+              },
+              {
+                "step": 2,
+                "bytes_before": 3700,
+                "bytes_after": 3700,
+                "exchanges_removed": 0,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 3,
+                "bytes_before": 4372,
+                "bytes_after": 4372,
+                "exchanges_removed": 0,
+                "exchanges_retained": 2,
+                "over_budget": false
+              },
+              {
+                "step": 4,
+                "bytes_before": 4791,
+                "bytes_after": 4791,
+                "exchanges_removed": 0,
+                "exchanges_retained": 3,
+                "over_budget": false
+              },
+              {
+                "step": 5,
+                "bytes_before": 5124,
+                "bytes_after": 5124,
+                "exchanges_removed": 0,
+                "exchanges_retained": 4,
+                "over_budget": false
+              },
+              {
+                "step": 6,
+                "bytes_before": 5544,
+                "bytes_after": 5544,
+                "exchanges_removed": 0,
+                "exchanges_retained": 5,
+                "over_budget": false
+              },
+              {
+                "step": 7,
+                "bytes_before": 5992,
+                "bytes_after": 5992,
+                "exchanges_removed": 0,
+                "exchanges_retained": 6,
+                "over_budget": false
+              }
+            ]
+          }
+        }
+      ],
+      "database_rows": [
+        {
+          "material_id": "M02",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "slot": "2026-11-15T18:00+08:00",
+          "draft_id": "de947f83-b815-4c13-8c2b-efe00550529a"
+        }
+      ],
+      "confirmation_rows": [],
+      "phases": [
+        {
+          "input": [
+            {
+              "material_id": "M02",
+              "requested_slot": "2026-11-15T18:00+08:00"
+            }
+          ],
+          "cli_flags": [],
+          "draft_count": 0
+        },
+        {
+          "input": [
+            {
+              "material_id": "M02",
+              "requested_slot": "2026-11-15T18:00+08:00"
+            }
+          ],
+          "cli_flags": [
+            "--evidence",
+            "examples/clarification.evidence.json"
+          ],
+          "draft_count": 1
+        }
+      ]
+    },
+    {
+      "case": "evidence-conflict-and-resolved",
+      "input": [
+        {
+          "material_id": "M02",
+          "requested_slot": "2026-11-15T18:00+08:00"
+        }
+      ],
+      "calendar": {
+        "occupied": [],
+        "alternative_times": [
+          "19:00",
+          "20:00"
+        ]
+      },
+      "cli_flags": [
+        "--evidence",
+        "examples/conflicting.evidence.json"
+      ],
+      "passed": true,
+      "failures": [],
+      "elapsed_seconds": 39.38,
+      "expected": [
+        {
+          "status": "evidence_conflict",
+          "action": "ask_user",
+          "slot": null,
+          "evidence": "rights_cleared"
+        },
+        {
+          "status": "saved",
+          "action": "lookup_evidence",
+          "slot": "2026-11-15T18:00+08:00",
+          "evidence": "E02"
+        }
+      ],
+      "expected_database_slots": [
+        "2026-11-15T18:00+08:00"
+      ],
+      "actual": [
+        {
+          "material_id": "M02",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T18:00+08:00",
+          "status": "evidence_conflict",
+          "audit_status": "evidence_conflict",
+          "risk_reasons": [],
+          "audit_evidence": [],
+          "evidence_conflicts": [
+            {
+              "rule_id": "R01",
+              "kind": "evidence_conflict",
+              "field": "rights_cleared",
+              "reason": "rights_cleared 的证据结论冲突，请核实后重新提交",
+              "sources": [
+                {
+                  "source_id": "E02",
+                  "value": true
+                },
+                {
+                  "source_id": "E02-REVIEW",
+                  "value": false
+                }
+              ]
+            }
+          ],
+          "suggested_slot": null,
+          "pending_items": [
+            "rights_cleared 的证据结论冲突，请核实后重新提交"
+          ],
+          "draft": {
+            "status": "not_attempted"
+          },
+          "incomplete_reason": null,
+          "clarification": {
+            "questions": [
+              {
+                "field": "rights_cleared",
+                "rule_id": "R01",
+                "sources": [
+                  {
+                    "source_id": "E02",
+                    "value": true
+                  },
+                  {
+                    "source_id": "E02-REVIEW",
+                    "value": false
+                  }
+                ],
+                "question": "这些证据的审核结论不同，请核实哪一条是有效记录。"
+              }
+            ],
+            "resume_option": "--evidence",
+            "resume_instruction": "补齐资料后，用相同请求和数据库重新运行审核。"
+          },
+          "model": "MiniMax-M3.1-Flash",
+          "trace": [
+            {
+              "step": 1,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M02",
+                "metadata": {
+                  "title": "字幕功能入门",
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "读取素材元数据以进行规则审核",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 2,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "evidence_conflict",
+                "findings": [
+                  {
+                    "rule_id": "R01",
+                    "kind": "evidence_conflict",
+                    "field": "rights_cleared",
+                    "reason": "rights_cleared 的证据结论冲突，请核实后重新提交",
+                    "sources": [
+                      {
+                        "source_id": "E02",
+                        "value": true
+                      },
+                      {
+                        "source_id": "E02-REVIEW",
+                        "value": false
+                      }
+                    ]
+                  }
+                ]
+              },
+              "decision_basis": "根据已读取元数据检查审核规则",
+              "next_action": "ask_user"
+            },
+            {
+              "step": 3,
+              "actor": "model",
+              "action": "ask_user",
+              "arguments": {},
+              "result": {
+                "status": "evidence_conflict",
+                "clarification": {
+                  "questions": [
+                    {
+                      "field": "rights_cleared",
+                      "rule_id": "R01",
+                      "sources": [
+                        {
+                          "source_id": "E02",
+                          "value": true
+                        },
+                        {
+                          "source_id": "E02-REVIEW",
+                          "value": false
+                        }
+                      ],
+                      "question": "这些证据的审核结论不同，请核实哪一条是有效记录。"
+                    }
+                  ],
+                  "resume_option": "--evidence",
+                  "resume_instruction": "补齐资料后，用相同请求和数据库重新运行审核。"
+                }
+              },
+              "decision_basis": "rights_cleared 存在证据冲突（E02 为 true，E02-REVIEW 为 false），需操作者核实来源",
+              "next_action": null
+            }
+          ],
+          "context": {
+            "budget_bytes": 24576,
+            "compact_at_bytes": 12288,
+            "observation_limit_bytes": 2048,
+            "rounds": [
+              {
+                "step": 1,
+                "bytes_before": 3215,
+                "bytes_after": 3215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 0,
+                "over_budget": false
+              },
+              {
+                "step": 2,
+                "bytes_before": 3620,
+                "bytes_after": 3620,
+                "exchanges_removed": 0,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 3,
+                "bytes_before": 4215,
+                "bytes_after": 4215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 2,
+                "over_budget": false
+              }
+            ]
+          }
+        },
+        {
+          "material_id": "M02",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T18:00+08:00",
+          "status": "saved",
+          "audit_status": "passed",
+          "risk_reasons": [],
+          "audit_evidence": [
+            {
+              "field": "rights_cleared",
+              "source_id": "E02"
+            }
+          ],
+          "evidence_conflicts": [],
+          "suggested_slot": "2026-11-15T18:00+08:00",
+          "pending_items": [],
+          "draft": {
+            "status": "saved",
+            "draft_id": "be5ab13e-c193-4065-8083-99ebbcc00228",
+            "slot": "2026-11-15T18:00+08:00"
+          },
+          "incomplete_reason": null,
+          "model": "MiniMax-M3.1-Flash",
+          "trace": [
+            {
+              "step": 1,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M02",
+                "metadata": {
+                  "title": "字幕功能入门",
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "获取素材 M02 的元数据以进行规则审核",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 2,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "insufficient_info",
+                "findings": [
+                  {
+                    "rule_id": "R01",
+                    "kind": "missing_or_invalid",
+                    "field": "rights_cleared",
+                    "reason": "请补齐或修正 rights_cleared"
+                  }
+                ],
+                "supplement_available": true
+              },
+              "decision_basis": "基于已读取的元数据检查审核规则",
+              "next_action": "lookup_evidence"
+            },
+            {
+              "step": 3,
+              "actor": "model",
+              "action": "lookup_evidence",
+              "arguments": {},
+              "result": {
+                "status": "supplemented",
+                "sources": [
+                  {
+                    "field": "rights_cleared",
+                    "source_id": "E02"
+                  }
+                ],
+                "source_count": 1
+              },
+              "decision_basis": "补查 rights_cleared 缺项",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 4,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "findings": []
+              },
+              "decision_basis": "补查成功后复审规则",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 5,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "exact"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "exact",
+                "available": [
+                  "2026-11-15T18:00+08:00"
+                ],
+                "occupied": []
+              },
+              "decision_basis": "查询授权时段是否空闲",
+              "next_action": "save_draft"
+            },
+            {
+              "step": 6,
+              "actor": "model",
+              "action": "save_draft",
+              "arguments": {
+                "slot": "2026-11-15T18:00+08:00"
+              },
+              "result": {
+                "status": "saved",
+                "draft_id": "be5ab13e-c193-4065-8083-99ebbcc00228",
+                "slot": "2026-11-15T18:00+08:00"
+              },
+              "decision_basis": "审核通过且授权时段空闲，保存草稿",
+              "next_action": "finish"
+            },
+            {
+              "step": 7,
+              "actor": "model",
+              "action": "finish",
+              "arguments": {},
+              "result": {
+                "status": "saved"
+              },
+              "decision_basis": "素材 M02 审核通过并已在授权时段保存草稿",
+              "next_action": null
+            }
+          ],
+          "context": {
+            "budget_bytes": 24576,
+            "compact_at_bytes": 12288,
+            "observation_limit_bytes": 2048,
+            "rounds": [
+              {
+                "step": 1,
+                "bytes_before": 3215,
+                "bytes_after": 3215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 0,
+                "over_budget": false
+              },
+              {
+                "step": 2,
+                "bytes_before": 3698,
+                "bytes_after": 3698,
+                "exchanges_removed": 0,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 3,
+                "bytes_before": 4197,
+                "bytes_after": 4197,
+                "exchanges_removed": 0,
+                "exchanges_retained": 2,
+                "over_budget": false
+              },
+              {
+                "step": 4,
+                "bytes_before": 4587,
+                "bytes_after": 4587,
+                "exchanges_removed": 0,
+                "exchanges_retained": 3,
+                "over_budget": false
+              },
+              {
+                "step": 5,
+                "bytes_before": 4896,
+                "bytes_after": 4896,
+                "exchanges_removed": 0,
+                "exchanges_retained": 4,
+                "over_budget": false
+              },
+              {
+                "step": 6,
+                "bytes_before": 5281,
+                "bytes_after": 5281,
+                "exchanges_removed": 0,
+                "exchanges_retained": 5,
+                "over_budget": false
+              },
+              {
+                "step": 7,
+                "bytes_before": 5715,
+                "bytes_after": 5715,
+                "exchanges_removed": 0,
+                "exchanges_retained": 6,
+                "over_budget": false
+              }
+            ]
+          }
+        }
+      ],
+      "database_rows": [
+        {
+          "material_id": "M02",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "slot": "2026-11-15T18:00+08:00",
+          "draft_id": "be5ab13e-c193-4065-8083-99ebbcc00228"
+        }
+      ],
+      "confirmation_rows": [],
+      "phases": [
+        {
+          "input": [
+            {
+              "material_id": "M02",
+              "requested_slot": "2026-11-15T18:00+08:00"
+            }
+          ],
+          "cli_flags": [
+            "--evidence",
+            "examples/conflicting.evidence.json"
+          ],
+          "draft_count": 0
+        },
+        {
+          "input": [
+            {
+              "material_id": "M02",
+              "requested_slot": "2026-11-15T18:00+08:00"
+            }
+          ],
+          "cli_flags": [
+            "--evidence",
+            "examples/clarification.evidence.json"
+          ],
+          "draft_count": 1
+        }
+      ]
+    },
+    {
+      "case": "rule-risk",
+      "input": [
+        {
+          "material_id": "M03",
+          "requested_slot": "2026-11-15T18:00+08:00"
+        }
+      ],
+      "calendar": {
+        "occupied": [],
+        "alternative_times": [
+          "19:00",
+          "20:00"
+        ]
+      },
+      "cli_flags": [],
+      "passed": true,
+      "failures": [],
+      "elapsed_seconds": 18.09,
+      "expected": [
+        {
+          "status": "blocked",
+          "action": "check_rules",
+          "slot": null,
+          "evidence": "R01"
+        }
+      ],
+      "expected_database_slots": [],
+      "actual": [
+        {
+          "material_id": "M03",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T18:00+08:00",
+          "status": "blocked",
+          "audit_status": "blocked",
+          "risk_reasons": [
+            {
+              "rule_id": "R01",
+              "kind": "risk",
+              "field": "rights_cleared",
+              "reason": "素材版权授权未通过"
+            }
+          ],
+          "audit_evidence": [],
+          "evidence_conflicts": [],
+          "suggested_slot": null,
+          "pending_items": [],
+          "draft": {
+            "status": "not_attempted"
+          },
+          "incomplete_reason": null,
+          "model": "MiniMax-M3.1-Flash",
+          "trace": [
+            {
+              "step": 1,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M03",
+                "metadata": {
+                  "title": "第三方音乐混剪",
+                  "rights_cleared": false,
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "读取素材元数据以进行规则审核",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 2,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "blocked",
+                "findings": [
+                  {
+                    "rule_id": "R01",
+                    "kind": "risk",
+                    "field": "rights_cleared",
+                    "reason": "素材版权授权未通过"
+                  }
+                ]
+              },
+              "decision_basis": "检查版权授权与品牌审核状态是否满足发布规则",
+              "next_action": "lookup_evidence"
+            },
+            {
+              "step": 3,
+              "actor": "model",
+              "action": "lookup_evidence",
+              "arguments": {},
+              "result": {
+                "status": "no_supplement"
+              },
+              "decision_basis": "补查版权授权证据以确认 rights_cleared 是否可满足",
+              "next_action": "ask_user"
+            },
+            {
+              "step": 4,
+              "actor": "model",
+              "action": "ask_user",
+              "arguments": {},
+              "result": {
+                "status": "rejected",
+                "reason": "insufficient_info_audit_required"
+              },
+              "decision_basis": "版权授权未通过且本地证据库无可补查资料，需操作者补充授权证明",
+              "next_action": "finish"
+            },
+            {
+              "step": 5,
+              "actor": "model",
+              "action": "finish",
+              "arguments": {},
+              "result": {
+                "status": "blocked"
+              },
+              "decision_basis": "素材版权授权未通过（R01），补查无结果，需操作者补充授权材料后方可排期发布",
+              "next_action": null
+            }
+          ],
+          "context": {
+            "budget_bytes": 24576,
+            "compact_at_bytes": 12288,
+            "observation_limit_bytes": 2048,
+            "rounds": [
+              {
+                "step": 1,
+                "bytes_before": 3215,
+                "bytes_after": 3215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 0,
+                "over_budget": false
+              },
+              {
+                "step": 2,
+                "bytes_before": 3648,
+                "bytes_after": 3648,
+                "exchanges_removed": 0,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 3,
+                "bytes_before": 4285,
+                "bytes_after": 4285,
+                "exchanges_removed": 0,
+                "exchanges_retained": 2,
+                "over_budget": false
+              },
+              {
+                "step": 4,
+                "bytes_before": 4626,
+                "bytes_after": 4626,
+                "exchanges_removed": 0,
+                "exchanges_retained": 3,
+                "over_budget": false
+              },
+              {
+                "step": 5,
+                "bytes_before": 5029,
+                "bytes_after": 5029,
+                "exchanges_removed": 0,
+                "exchanges_retained": 4,
+                "over_budget": false
+              }
+            ]
+          }
+        }
+      ],
+      "database_rows": [],
+      "confirmation_rows": [],
+      "phases": [
+        {
+          "input": [
+            {
+              "material_id": "M03",
+              "requested_slot": "2026-11-15T18:00+08:00"
+            }
+          ],
+          "cli_flags": [],
+          "draft_count": 0
+        }
+      ]
+    },
+    {
+      "case": "supplement-clears-risk",
+      "input": [
+        {
+          "material_id": "M05",
+          "requested_slot": "2026-11-15T18:00+08:00"
+        }
+      ],
+      "calendar": {
+        "occupied": [],
+        "alternative_times": [
+          "19:00",
+          "20:00"
+        ]
+      },
+      "cli_flags": [
+        "--context-budget-bytes",
+        "7500"
+      ],
+      "passed": true,
+      "failures": [],
+      "elapsed_seconds": 27.48,
+      "expected": [
+        {
+          "status": "saved",
+          "action": "lookup_evidence",
+          "slot": "2026-11-15T18:00+08:00",
+          "evidence": "E05"
+        }
+      ],
+      "expected_database_slots": [
+        "2026-11-15T18:00+08:00"
+      ],
+      "actual": [
+        {
+          "material_id": "M05",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T18:00+08:00",
+          "status": "saved",
+          "audit_status": "passed",
+          "risk_reasons": [],
+          "audit_evidence": [
+            {
+              "field": "rights_cleared",
+              "source_id": "E05"
+            }
+          ],
+          "evidence_conflicts": [],
+          "suggested_slot": "2026-11-15T18:00+08:00",
+          "pending_items": [],
+          "draft": {
+            "status": "saved",
+            "draft_id": "dc424686-adbe-43bf-8fef-4b2d0d645176",
+            "slot": "2026-11-15T18:00+08:00"
+          },
+          "incomplete_reason": null,
+          "model": "MiniMax-M3.1-Flash",
+          "trace": [
+            {
+              "step": 1,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M05",
+                "metadata": {
+                  "title": "剪辑素材练习",
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "读取 M05 素材元数据以进行审核",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 2,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "insufficient_info",
+                "findings": [
+                  {
+                    "rule_id": "R01",
+                    "kind": "missing_or_invalid",
+                    "field": "rights_cleared",
+                    "reason": "请补齐或修正 rights_cleared"
+                  }
+                ],
+                "supplement_available": true
+              },
+              "decision_basis": "基于已读元数据检查审核规则",
+              "next_action": "lookup_evidence"
+            },
+            {
+              "step": 3,
+              "actor": "model",
+              "action": "lookup_evidence",
+              "arguments": {},
+              "result": {
+                "status": "supplemented",
+                "sources": [
+                  {
+                    "field": "rights_cleared",
+                    "source_id": "E05"
+                  }
+                ],
+                "source_count": 1
+              },
+              "decision_basis": "补查 rights_cleared 授权信息",
+              "next_action": "read_material"
+            },
+            {
+              "step": 4,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M05",
+                "metadata": {
+                  "title": "剪辑素材练习",
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "读取素材元数据",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 5,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "findings": []
+              },
+              "decision_basis": "元数据已读取，检查审核规则",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 6,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "exact"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "exact",
+                "available": [
+                  "2026-11-15T18:00+08:00"
+                ],
+                "occupied": []
+              },
+              "decision_basis": "查询用户授权时段 2026-11-15T18:00+08:00 是否空闲",
+              "next_action": "save_draft"
+            },
+            {
+              "step": 7,
+              "actor": "model",
+              "action": "save_draft",
+              "arguments": {
+                "slot": "2026-11-15T18:00+08:00"
+              },
+              "result": {
+                "status": "saved",
+                "draft_id": "dc424686-adbe-43bf-8fef-4b2d0d645176",
+                "slot": "2026-11-15T18:00+08:00"
+              },
+              "decision_basis": "素材审核通过且确认时段空闲，按授权时段保存草稿",
+              "next_action": "finish"
+            },
+            {
+              "step": 8,
+              "actor": "model",
+              "action": "finish",
+              "arguments": {},
+              "result": {
+                "status": "saved"
+              },
+              "decision_basis": "草稿已成功保存于确认时段 2026-11-15T18:00+08:00，任务结束",
+              "next_action": null
+            }
+          ],
+          "context": {
+            "budget_bytes": 7500,
+            "compact_at_bytes": 3750,
+            "observation_limit_bytes": 2048,
+            "rounds": [
+              {
+                "step": 1,
+                "bytes_before": 3215,
+                "bytes_after": 3215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 0,
+                "over_budget": false
+              },
+              {
+                "step": 2,
+                "bytes_before": 3689,
+                "bytes_after": 3689,
+                "exchanges_removed": 0,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 3,
+                "bytes_before": 4307,
+                "bytes_after": 4070,
+                "exchanges_removed": 1,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 4,
+                "bytes_before": 4462,
+                "bytes_after": 3844,
+                "exchanges_removed": 1,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 5,
+                "bytes_before": 4228,
+                "bytes_after": 3832,
+                "exchanges_removed": 1,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 6,
+                "bytes_before": 4311,
+                "bytes_after": 3927,
+                "exchanges_removed": 1,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 7,
+                "bytes_before": 4368,
+                "bytes_after": 3883,
+                "exchanges_removed": 1,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 8,
+                "bytes_before": 4420,
+                "bytes_after": 4005,
+                "exchanges_removed": 1,
+                "exchanges_retained": 1,
+                "over_budget": false
+              }
+            ]
+          }
+        }
+      ],
+      "database_rows": [
+        {
+          "material_id": "M05",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "slot": "2026-11-15T18:00+08:00",
+          "draft_id": "dc424686-adbe-43bf-8fef-4b2d0d645176"
+        }
+      ],
+      "confirmation_rows": [],
+      "phases": [
+        {
+          "input": [
+            {
+              "material_id": "M05",
+              "requested_slot": "2026-11-15T18:00+08:00"
+            }
+          ],
+          "cli_flags": [
+            "--context-budget-bytes",
+            "7500"
+          ],
+          "draft_count": 1
+        }
+      ]
+    },
+    {
+      "case": "supplement-reveals-risk",
+      "input": [
+        {
+          "material_id": "M06",
+          "requested_slot": "2026-11-15T18:00+08:00"
+        }
+      ],
+      "calendar": {
+        "occupied": [],
+        "alternative_times": [
+          "19:00",
+          "20:00"
+        ]
+      },
+      "cli_flags": [],
+      "passed": true,
+      "failures": [],
+      "elapsed_seconds": 18.51,
+      "expected": [
+        {
+          "status": "blocked",
+          "action": "lookup_evidence",
+          "slot": null,
+          "evidence": "E06"
+        }
+      ],
+      "expected_database_slots": [],
+      "actual": [
+        {
+          "material_id": "M06",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T18:00+08:00",
+          "status": "blocked",
+          "audit_status": "blocked",
+          "risk_reasons": [
+            {
+              "rule_id": "R01",
+              "kind": "risk",
+              "field": "rights_cleared",
+              "reason": "素材版权授权未通过"
+            }
+          ],
+          "audit_evidence": [
+            {
+              "field": "rights_cleared",
+              "source_id": "E06"
+            }
+          ],
+          "evidence_conflicts": [],
+          "suggested_slot": null,
+          "pending_items": [],
+          "draft": {
+            "status": "not_attempted"
+          },
+          "incomplete_reason": null,
+          "model": "MiniMax-M3.1-Flash",
+          "trace": [
+            {
+              "step": 1,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M06",
+                "metadata": {
+                  "title": "音乐素材精选",
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "读取 M06 素材元数据以进行规则审核",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 2,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "insufficient_info",
+                "findings": [
+                  {
+                    "rule_id": "R01",
+                    "kind": "missing_or_invalid",
+                    "field": "rights_cleared",
+                    "reason": "请补齐或修正 rights_cleared"
+                  }
+                ],
+                "supplement_available": true
+              },
+              "decision_basis": "依据已读取的元数据检查审核规则合规性",
+              "next_action": "lookup_evidence"
+            },
+            {
+              "step": 3,
+              "actor": "model",
+              "action": "lookup_evidence",
+              "arguments": {},
+              "result": {
+                "status": "supplemented",
+                "sources": [
+                  {
+                    "field": "rights_cleared",
+                    "source_id": "E06"
+                  }
+                ],
+                "source_count": 1
+              },
+              "decision_basis": "补查缺失的 rights_cleared 权利授权证据",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 4,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "blocked",
+                "findings": [
+                  {
+                    "rule_id": "R01",
+                    "kind": "risk",
+                    "field": "rights_cleared",
+                    "reason": "素材版权授权未通过"
+                  }
+                ]
+              },
+              "decision_basis": "补查 rights_cleared 后重新复审全部规则",
+              "next_action": "finish"
+            },
+            {
+              "step": 5,
+              "actor": "model",
+              "action": "finish",
+              "arguments": {},
+              "result": {
+                "status": "blocked"
+              },
+              "decision_basis": "复审结果为 blocked：R01 版权授权未通过，素材不具备发布条件，不进行时段查询或草稿保存。",
+              "next_action": null
+            }
+          ],
+          "context": {
+            "budget_bytes": 24576,
+            "compact_at_bytes": 12288,
+            "observation_limit_bytes": 2048,
+            "rounds": [
+              {
+                "step": 1,
+                "bytes_before": 3215,
+                "bytes_after": 3215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 0,
+                "over_budget": false
+              },
+              {
+                "step": 2,
+                "bytes_before": 3695,
+                "bytes_after": 3695,
+                "exchanges_removed": 0,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 3,
+                "bytes_before": 4356,
+                "bytes_after": 4356,
+                "exchanges_removed": 0,
+                "exchanges_retained": 2,
+                "over_budget": false
+              },
+              {
+                "step": 4,
+                "bytes_before": 4767,
+                "bytes_after": 4767,
+                "exchanges_removed": 0,
+                "exchanges_retained": 3,
+                "over_budget": false
+              },
+              {
+                "step": 5,
+                "bytes_before": 5210,
+                "bytes_after": 5210,
+                "exchanges_removed": 0,
+                "exchanges_retained": 4,
+                "over_budget": false
+              }
+            ]
+          }
+        }
+      ],
+      "database_rows": [],
+      "confirmation_rows": [],
+      "phases": [
+        {
+          "input": [
+            {
+              "material_id": "M06",
+              "requested_slot": "2026-11-15T18:00+08:00"
+            }
+          ],
+          "cli_flags": [],
+          "draft_count": 0
+        }
+      ]
+    },
+    {
+      "case": "confirmation-ticket",
+      "input": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00"
+        }
+      ],
+      "calendar": {
+        "occupied": [
+          "2026-11-15T18:00+08:00",
+          "2026-11-15T20:00+08:00"
+        ],
+        "alternative_times": [
+          "19:00",
+          "20:00"
+        ]
+      },
+      "cli_flags": [],
+      "passed": true,
+      "failures": [],
+      "elapsed_seconds": 36.89,
+      "expected": [
+        {
+          "status": "needs_confirmation",
+          "action": "alternatives",
+          "slot": "2026-11-15T19:00+08:00",
+          "evidence": null
+        },
+        {
+          "status": "invalid_confirmation",
+          "action": "validate_confirmation",
+          "slot": null,
+          "evidence": null
+        },
+        {
+          "status": "saved",
+          "action": "save_draft",
+          "slot": "2026-11-15T19:00+08:00",
+          "evidence": null
+        },
+        {
+          "status": "reused",
+          "action": "reuse_existing_draft",
+          "slot": "2026-11-15T19:00+08:00",
+          "evidence": null
+        }
+      ],
+      "expected_database_slots": [
+        "2026-11-15T19:00+08:00"
+      ],
+      "actual": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T18:00+08:00",
+          "status": "needs_confirmation",
+          "audit_status": "passed",
+          "risk_reasons": [],
+          "audit_evidence": [],
+          "evidence_conflicts": [],
+          "suggested_slot": "2026-11-15T19:00+08:00",
+          "pending_items": [
+            "请确认改期至 2026-11-15T19:00+08:00"
+          ],
+          "draft": {
+            "status": "not_attempted"
+          },
+          "incomplete_reason": null,
+          "confirmation": {
+            "status": "pending",
+            "confirmation_id": "cea4c058-2915-4a67-ac73-199d13d5e351",
+            "slot": "2026-11-15T19:00+08:00"
+          },
+          "model": "MiniMax-M3.1-Flash",
+          "trace": [
+            {
+              "step": 1,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M01",
+                "metadata": {
+                  "title": "剪辑快捷键教程",
+                  "rights_cleared": true,
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "读取素材元数据以进行审核检查",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 2,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "findings": []
+              },
+              "decision_basis": "依据已读取的元数据检查审核规则",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 3,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "exact"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "exact",
+                "available": [],
+                "occupied": [
+                  "2026-11-15T18:00+08:00"
+                ]
+              },
+              "decision_basis": "审核通过，查询用户授权时段的可用性",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 4,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "alternatives"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "alternatives",
+                "available": [
+                  "2026-11-15T19:00+08:00"
+                ],
+                "occupied": [
+                  "2026-11-15T20:00+08:00"
+                ]
+              },
+              "decision_basis": "原授权时段已占用，查询同日替代时段",
+              "next_action": "finish"
+            },
+            {
+              "step": 5,
+              "actor": "model",
+              "action": "finish",
+              "arguments": {
+                "proposed_slot": "2026-11-15T19:00+08:00"
+              },
+              "result": {
+                "status": "needs_confirmation",
+                "confirmation": {
+                  "status": "pending",
+                  "confirmation_id": "cea4c058-2915-4a67-ac73-199d13d5e351",
+                  "slot": "2026-11-15T19:00+08:00"
+                }
+              },
+              "decision_basis": "素材审核通过，但授权时段 2026-11-15T18:00+08:00 已被占用，改期候选需用户确认后再保存草稿",
+              "next_action": null
+            }
+          ],
+          "context": {
+            "budget_bytes": 24576,
+            "compact_at_bytes": 12288,
+            "observation_limit_bytes": 2048,
+            "rounds": [
+              {
+                "step": 1,
+                "bytes_before": 3215,
+                "bytes_after": 3215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 0,
+                "over_budget": false
+              },
+              {
+                "step": 2,
+                "bytes_before": 3671,
+                "bytes_after": 3671,
+                "exchanges_removed": 0,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 3,
+                "bytes_before": 4022,
+                "bytes_after": 4022,
+                "exchanges_removed": 0,
+                "exchanges_retained": 2,
+                "over_budget": false
+              },
+              {
+                "step": 4,
+                "bytes_before": 4452,
+                "bytes_after": 4452,
+                "exchanges_removed": 0,
+                "exchanges_retained": 3,
+                "over_budget": false
+              },
+              {
+                "step": 5,
+                "bytes_before": 4922,
+                "bytes_after": 4922,
+                "exchanges_removed": 0,
+                "exchanges_retained": 4,
+                "over_budget": false
+              }
+            ]
+          }
+        },
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T20:00+08:00",
+          "submitted_confirmation_id": "cea4c058-2915-4a67-ac73-199d13d5e351",
+          "status": "invalid_confirmation",
+          "audit_status": "not_reviewed",
+          "risk_reasons": [],
+          "audit_evidence": [],
+          "evidence_conflicts": [],
+          "suggested_slot": null,
+          "pending_items": [],
+          "draft": {
+            "status": "not_attempted"
+          },
+          "incomplete_reason": "confirmation_mismatch",
+          "model": null,
+          "trace": [
+            {
+              "step": 0,
+              "actor": "runtime",
+              "action": "validate_confirmation",
+              "arguments": {
+                "material_id": "M01",
+                "requested_slot": "2026-11-15T18:00+08:00",
+                "confirmed_slot": "2026-11-15T20:00+08:00"
+              },
+              "result": {
+                "status": "invalid_confirmation"
+              },
+              "decision_basis": "确认编号与当前素材、原始时段或改期时段不匹配"
+            }
+          ]
+        },
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T19:00+08:00",
+          "submitted_confirmation_id": "cea4c058-2915-4a67-ac73-199d13d5e351",
+          "status": "saved",
+          "audit_status": "passed",
+          "risk_reasons": [],
+          "audit_evidence": [],
+          "evidence_conflicts": [],
+          "suggested_slot": "2026-11-15T19:00+08:00",
+          "pending_items": [],
+          "draft": {
+            "status": "saved",
+            "draft_id": "9b5d6a52-bdcb-44ed-8c7d-5456dac1cdd2",
+            "slot": "2026-11-15T19:00+08:00"
+          },
+          "incomplete_reason": null,
+          "model": "MiniMax-M3.1-Flash",
+          "trace": [
+            {
+              "step": 1,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M01",
+                "metadata": {
+                  "title": "剪辑快捷键教程",
+                  "rights_cleared": true,
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "读取 M01 元数据以进行规则审核",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 2,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "findings": []
+              },
+              "decision_basis": "依据元数据检查版权与品牌审核规则",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 3,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "exact"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "exact",
+                "available": [
+                  "2026-11-15T19:00+08:00"
+                ],
+                "occupied": []
+              },
+              "decision_basis": "查询用户确认的授权时段 2026-11-15T19:00+08:00 是否空闲",
+              "next_action": "save_draft"
+            },
+            {
+              "step": 4,
+              "actor": "model",
+              "action": "save_draft",
+              "arguments": {
+                "slot": "2026-11-15T19:00+08:00"
+              },
+              "result": {
+                "status": "saved",
+                "draft_id": "9b5d6a52-bdcb-44ed-8c7d-5456dac1cdd2",
+                "slot": "2026-11-15T19:00+08:00"
+              },
+              "decision_basis": "审核通过且 confirmed_slot 空闲，按确认时段保存草稿",
+              "next_action": "finish"
+            },
+            {
+              "step": 5,
+              "actor": "model",
+              "action": "finish",
+              "arguments": {},
+              "result": {
+                "status": "saved"
+              },
+              "decision_basis": "素材审核通过且已按 confirmed_slot 保存草稿，任务结束",
+              "next_action": null
+            }
+          ],
+          "context": {
+            "budget_bytes": 24576,
+            "compact_at_bytes": 12288,
+            "observation_limit_bytes": 2048,
+            "rounds": [
+              {
+                "step": 1,
+                "bytes_before": 3215,
+                "bytes_after": 3215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 0,
+                "over_budget": false
+              },
+              {
+                "step": 2,
+                "bytes_before": 3785,
+                "bytes_after": 3785,
+                "exchanges_removed": 0,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 3,
+                "bytes_before": 4115,
+                "bytes_after": 4115,
+                "exchanges_removed": 0,
+                "exchanges_retained": 2,
+                "over_budget": false
+              },
+              {
+                "step": 4,
+                "bytes_before": 4539,
+                "bytes_after": 4539,
+                "exchanges_removed": 0,
+                "exchanges_retained": 3,
+                "over_budget": false
+              },
+              {
+                "step": 5,
+                "bytes_before": 4992,
+                "bytes_after": 4992,
+                "exchanges_removed": 0,
+                "exchanges_retained": 4,
+                "over_budget": false
+              }
+            ]
+          }
+        },
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T19:00+08:00",
+          "submitted_confirmation_id": "cea4c058-2915-4a67-ac73-199d13d5e351",
+          "status": "reused",
+          "audit_status": "passed",
+          "risk_reasons": [],
+          "audit_evidence": [],
+          "evidence_conflicts": [],
+          "suggested_slot": "2026-11-15T19:00+08:00",
+          "pending_items": [],
+          "draft": {
+            "status": "reused",
+            "draft_id": "9b5d6a52-bdcb-44ed-8c7d-5456dac1cdd2",
+            "slot": "2026-11-15T19:00+08:00"
+          },
+          "incomplete_reason": null,
+          "model": null,
+          "trace": [
+            {
+              "step": 0,
+              "actor": "runtime",
+              "action": "reuse_existing_draft",
+              "arguments": {
+                "material_id": "M01",
+                "requested_slot": "2026-11-15T18:00+08:00",
+                "confirmed_slot": "2026-11-15T19:00+08:00"
+              },
+              "result": {
+                "status": "reused",
+                "draft_id": "9b5d6a52-bdcb-44ed-8c7d-5456dac1cdd2",
+                "slot": "2026-11-15T19:00+08:00"
+              },
+              "decision_basis": "该素材和原始发布时间已关联草稿"
+            }
+          ]
+        }
+      ],
+      "database_rows": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "slot": "2026-11-15T19:00+08:00",
+          "draft_id": "9b5d6a52-bdcb-44ed-8c7d-5456dac1cdd2"
+        }
+      ],
+      "confirmation_rows": [
+        {
+          "confirmation_id": "cea4c058-2915-4a67-ac73-199d13d5e351",
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "slot": "2026-11-15T19:00+08:00",
+          "draft_id": "9b5d6a52-bdcb-44ed-8c7d-5456dac1cdd2"
+        }
+      ],
+      "phases": [
+        {
+          "input": [
+            {
+              "material_id": "M01",
+              "requested_slot": "2026-11-15T18:00+08:00"
+            }
+          ],
+          "cli_flags": [],
+          "draft_count": 0
+        },
+        {
+          "input": [
+            {
+              "material_id": "M01",
+              "requested_slot": "2026-11-15T18:00+08:00",
+              "confirmation_id": "cea4c058-2915-4a67-ac73-199d13d5e351",
+              "confirmed_slot": "2026-11-15T20:00+08:00"
+            }
+          ],
+          "cli_flags": [],
+          "draft_count": 0
+        },
+        {
+          "input": [
+            {
+              "material_id": "M01",
+              "requested_slot": "2026-11-15T18:00+08:00",
+              "confirmation_id": "cea4c058-2915-4a67-ac73-199d13d5e351",
+              "confirmed_slot": "2026-11-15T19:00+08:00"
+            }
+          ],
+          "cli_flags": [],
+          "draft_count": 1
+        },
+        {
+          "input": [
+            {
+              "material_id": "M01",
+              "requested_slot": "2026-11-15T18:00+08:00",
+              "confirmation_id": "cea4c058-2915-4a67-ac73-199d13d5e351",
+              "confirmed_slot": "2026-11-15T19:00+08:00"
+            }
+          ],
+          "cli_flags": [],
+          "draft_count": 1
+        }
+      ]
+    },
+    {
+      "case": "confirmed-and-replayed",
+      "input": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T19:00+08:00"
+        }
+      ],
+      "calendar": {
+        "occupied": [
+          "2026-11-15T18:00+08:00",
+          "2026-11-15T20:00+08:00"
+        ],
+        "alternative_times": [
+          "19:00",
+          "20:00"
+        ]
+      },
+      "cli_flags": [],
+      "passed": true,
+      "failures": [],
+      "elapsed_seconds": 19.38,
+      "expected": [
+        {
+          "status": "saved",
+          "action": "save_draft",
+          "slot": "2026-11-15T19:00+08:00",
+          "evidence": null
+        },
+        {
+          "status": "reused",
+          "action": "reuse_existing_draft",
+          "slot": "2026-11-15T19:00+08:00",
+          "evidence": null
+        }
+      ],
+      "expected_database_slots": [
+        "2026-11-15T19:00+08:00"
+      ],
+      "actual": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T19:00+08:00",
+          "status": "saved",
+          "audit_status": "passed",
+          "risk_reasons": [],
+          "audit_evidence": [],
+          "evidence_conflicts": [],
+          "suggested_slot": "2026-11-15T19:00+08:00",
+          "pending_items": [],
+          "draft": {
+            "status": "saved",
+            "draft_id": "154aed28-3485-44b8-8149-5fae742ba105",
+            "slot": "2026-11-15T19:00+08:00"
+          },
+          "incomplete_reason": null,
+          "model": "MiniMax-M3.1-Flash",
+          "trace": [
+            {
+              "step": 1,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M01",
+                "metadata": {
+                  "title": "剪辑快捷键教程",
+                  "rights_cleared": true,
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "读取素材元数据以进行规则审核",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 2,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "findings": []
+              },
+              "decision_basis": "依据已读取的版权与品牌审核元数据检查规则",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 3,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "exact"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "exact",
+                "available": [
+                  "2026-11-15T19:00+08:00"
+                ],
+                "occupied": []
+              },
+              "decision_basis": "查询用户确认的授权时段是否空闲",
+              "next_action": "save_draft"
+            },
+            {
+              "step": 4,
+              "actor": "model",
+              "action": "save_draft",
+              "arguments": {
+                "slot": "2026-11-15T19:00+08:00"
+              },
+              "result": {
+                "status": "saved",
+                "draft_id": "154aed28-3485-44b8-8149-5fae742ba105",
+                "slot": "2026-11-15T19:00+08:00"
+              },
+              "decision_basis": "审核通过且确认时段空闲，保存草稿",
+              "next_action": "finish"
+            },
+            {
+              "step": 5,
+              "actor": "model",
+              "action": "finish",
+              "arguments": {},
+              "result": {
+                "status": "saved"
+              },
+              "decision_basis": "素材审核通过并已在确认时段成功保存草稿",
+              "next_action": null
+            }
+          ],
+          "context": {
+            "budget_bytes": 24576,
+            "compact_at_bytes": 12288,
+            "observation_limit_bytes": 2048,
+            "rounds": [
+              {
+                "step": 1,
+                "bytes_before": 3215,
+                "bytes_after": 3215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 0,
+                "over_budget": false
+              },
+              {
+                "step": 2,
+                "bytes_before": 3920,
+                "bytes_after": 3920,
+                "exchanges_removed": 0,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 3,
+                "bytes_before": 4262,
+                "bytes_after": 4262,
+                "exchanges_removed": 0,
+                "exchanges_retained": 2,
+                "over_budget": false
+              },
+              {
+                "step": 4,
+                "bytes_before": 4662,
+                "bytes_after": 4662,
+                "exchanges_removed": 0,
+                "exchanges_retained": 3,
+                "over_budget": false
+              },
+              {
+                "step": 5,
+                "bytes_before": 5096,
+                "bytes_after": 5096,
+                "exchanges_removed": 0,
+                "exchanges_retained": 4,
+                "over_budget": false
+              }
+            ]
+          }
+        },
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T19:00+08:00",
+          "status": "reused",
+          "audit_status": "passed",
+          "risk_reasons": [],
+          "audit_evidence": [],
+          "evidence_conflicts": [],
+          "suggested_slot": "2026-11-15T19:00+08:00",
+          "pending_items": [],
+          "draft": {
+            "status": "reused",
+            "draft_id": "154aed28-3485-44b8-8149-5fae742ba105",
+            "slot": "2026-11-15T19:00+08:00"
+          },
+          "incomplete_reason": null,
+          "model": null,
+          "trace": [
+            {
+              "step": 0,
+              "actor": "runtime",
+              "action": "reuse_existing_draft",
+              "arguments": {
+                "material_id": "M01",
+                "requested_slot": "2026-11-15T18:00+08:00",
+                "confirmed_slot": "2026-11-15T19:00+08:00"
+              },
+              "result": {
+                "status": "reused",
+                "draft_id": "154aed28-3485-44b8-8149-5fae742ba105",
+                "slot": "2026-11-15T19:00+08:00"
+              },
+              "decision_basis": "该素材和原始发布时间已关联草稿"
+            }
+          ]
+        }
+      ],
+      "database_rows": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "slot": "2026-11-15T19:00+08:00",
+          "draft_id": "154aed28-3485-44b8-8149-5fae742ba105"
+        }
+      ],
+      "confirmation_rows": [],
+      "phases": [
+        {
+          "input": [
+            {
+              "material_id": "M01",
+              "requested_slot": "2026-11-15T18:00+08:00",
+              "confirmed_slot": "2026-11-15T19:00+08:00"
+            }
+          ],
+          "cli_flags": [],
+          "draft_count": 1
+        },
+        {
+          "input": [
+            {
+              "material_id": "M01",
+              "requested_slot": "2026-11-15T18:00+08:00",
+              "confirmed_slot": "2026-11-15T19:00+08:00"
+            }
+          ],
+          "cli_flags": [],
+          "draft_count": 1
+        }
+      ]
+    },
+    {
+      "case": "save-failure",
+      "input": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00"
+        }
+      ],
+      "calendar": {
+        "occupied": [],
+        "alternative_times": [
+          "19:00",
+          "20:00"
+        ]
+      },
+      "cli_flags": [
+        "--inject-save-failure"
+      ],
+      "passed": true,
+      "failures": [],
+      "elapsed_seconds": 19.03,
+      "expected": [
+        {
+          "status": "save_failed",
+          "action": "save_draft",
+          "slot": null,
+          "evidence": "injected_save_failure"
+        }
+      ],
+      "expected_database_slots": [],
+      "actual": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T18:00+08:00",
+          "status": "save_failed",
+          "audit_status": "passed",
+          "risk_reasons": [],
+          "audit_evidence": [],
+          "evidence_conflicts": [],
+          "suggested_slot": null,
+          "pending_items": [],
+          "draft": {
+            "status": "save_failed",
+            "reason": "injected_save_failure"
+          },
+          "incomplete_reason": null,
+          "model": "MiniMax-M3.1-Flash",
+          "trace": [
+            {
+              "step": 1,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M01",
+                "metadata": {
+                  "title": "剪辑快捷键教程",
+                  "rights_cleared": true,
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "读取素材 M01 的元数据以进行审核",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 2,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "findings": []
+              },
+              "decision_basis": "素材已读取，版权与品牌审核均已通过，检查发布规则",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 3,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "exact"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "exact",
+                "available": [
+                  "2026-11-15T18:00+08:00"
+                ],
+                "occupied": []
+              },
+              "decision_basis": "审核通过，查询用户授权时段 2026-11-15T18:00+08:00 是否空闲",
+              "next_action": "save_draft"
+            },
+            {
+              "step": 4,
+              "actor": "model",
+              "action": "save_draft",
+              "arguments": {
+                "slot": "2026-11-15T18:00+08:00"
+              },
+              "result": {
+                "status": "save_failed",
+                "reason": "injected_save_failure"
+              },
+              "decision_basis": "审核通过且授权时段空闲，保存为草稿",
+              "next_action": "finish"
+            },
+            {
+              "step": 5,
+              "actor": "model",
+              "action": "finish",
+              "arguments": {},
+              "result": {
+                "status": "save_failed"
+              },
+              "decision_basis": "素材审核通过（版权与品牌均已确认），授权时段 2026-11-15T18:00+08:00 查询为空闲，但保存草稿失败（injected_save_failure），本次未完成写入，需重试或检查保存通道。",
+              "next_action": null
+            }
+          ],
+          "context": {
+            "budget_bytes": 24576,
+            "compact_at_bytes": 12288,
+            "observation_limit_bytes": 2048,
+            "rounds": [
+              {
+                "step": 1,
+                "bytes_before": 3215,
+                "bytes_after": 3215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 0,
+                "over_budget": false
+              },
+              {
+                "step": 2,
+                "bytes_before": 3712,
+                "bytes_after": 3712,
+                "exchanges_removed": 0,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 3,
+                "bytes_before": 4068,
+                "bytes_after": 4068,
+                "exchanges_removed": 0,
+                "exchanges_retained": 2,
+                "over_budget": false
+              },
+              {
+                "step": 4,
+                "bytes_before": 4500,
+                "bytes_after": 4500,
+                "exchanges_removed": 0,
+                "exchanges_retained": 3,
+                "over_budget": false
+              },
+              {
+                "step": 5,
+                "bytes_before": 4892,
+                "bytes_after": 4892,
+                "exchanges_removed": 0,
+                "exchanges_retained": 4,
+                "over_budget": false
+              }
+            ]
+          }
+        }
+      ],
+      "database_rows": [],
+      "confirmation_rows": [],
+      "phases": [
+        {
+          "input": [
+            {
+              "material_id": "M01",
+              "requested_slot": "2026-11-15T18:00+08:00"
+            }
+          ],
+          "cli_flags": [
+            "--inject-save-failure"
+          ],
+          "draft_count": 0
+        }
+      ]
+    },
+    {
+      "case": "batch-slot-contention",
+      "input": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00"
+        },
+        {
+          "material_id": "M04",
+          "requested_slot": "2026-11-15T18:00+08:00"
+        }
+      ],
+      "calendar": {
+        "occupied": [
+          "2026-11-15T20:00+08:00"
+        ],
+        "alternative_times": [
+          "19:00",
+          "20:00"
+        ]
+      },
+      "cli_flags": [],
+      "passed": true,
+      "failures": [],
+      "elapsed_seconds": 45.03,
+      "expected": [
+        {
+          "status": "saved",
+          "action": "save_draft",
+          "slot": "2026-11-15T18:00+08:00",
+          "evidence": null
+        },
+        {
+          "status": "needs_confirmation",
+          "action": "alternatives",
+          "slot": "2026-11-15T19:00+08:00",
+          "evidence": null
+        }
+      ],
+      "expected_database_slots": [
+        "2026-11-15T18:00+08:00"
+      ],
+      "actual": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T18:00+08:00",
+          "status": "saved",
+          "audit_status": "passed",
+          "risk_reasons": [],
+          "audit_evidence": [],
+          "evidence_conflicts": [],
+          "suggested_slot": "2026-11-15T18:00+08:00",
+          "pending_items": [],
+          "draft": {
+            "status": "saved",
+            "draft_id": "4b743b53-f639-4c15-816b-55afde98d0d1",
+            "slot": "2026-11-15T18:00+08:00"
+          },
+          "incomplete_reason": null,
+          "model": "MiniMax-M3.1-Flash",
+          "trace": [
+            {
+              "step": 1,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M01",
+                "metadata": {
+                  "title": "剪辑快捷键教程",
+                  "rights_cleared": true,
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "读取素材元数据以进行规则检查",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 2,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "findings": []
+              },
+              "decision_basis": "基于已读取元数据检查审核规则",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 3,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "exact"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "exact",
+                "available": [
+                  "2026-11-15T18:00+08:00"
+                ],
+                "occupied": []
+              },
+              "decision_basis": "查询用户授权时段确认其空闲",
+              "next_action": "save_draft"
+            },
+            {
+              "step": 4,
+              "actor": "model",
+              "action": "save_draft",
+              "arguments": {
+                "slot": "2026-11-15T18:00+08:00"
+              },
+              "result": {
+                "status": "saved",
+                "draft_id": "4b743b53-f639-4c15-816b-55afde98d0d1",
+                "slot": "2026-11-15T18:00+08:00"
+              },
+              "decision_basis": "素材审核通过且授权时段空闲，保存草稿",
+              "next_action": "finish"
+            },
+            {
+              "step": 5,
+              "actor": "model",
+              "action": "finish",
+              "arguments": {},
+              "result": {
+                "status": "saved"
+              },
+              "decision_basis": "素材 M01 审核通过，已在授权时段保存草稿",
+              "next_action": null
+            }
+          ],
+          "context": {
+            "budget_bytes": 24576,
+            "compact_at_bytes": 12288,
+            "observation_limit_bytes": 2048,
+            "rounds": [
+              {
+                "step": 1,
+                "bytes_before": 3215,
+                "bytes_after": 3215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 0,
+                "over_budget": false
+              },
+              {
+                "step": 2,
+                "bytes_before": 3671,
+                "bytes_after": 3671,
+                "exchanges_removed": 0,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 3,
+                "bytes_before": 4019,
+                "bytes_after": 4019,
+                "exchanges_removed": 0,
+                "exchanges_retained": 2,
+                "over_budget": false
+              },
+              {
+                "step": 4,
+                "bytes_before": 4437,
+                "bytes_after": 4437,
+                "exchanges_removed": 0,
+                "exchanges_retained": 3,
+                "over_budget": false
+              },
+              {
+                "step": 5,
+                "bytes_before": 4901,
+                "bytes_after": 4901,
+                "exchanges_removed": 0,
+                "exchanges_retained": 4,
+                "over_budget": false
+              }
+            ]
+          }
+        },
+        {
+          "material_id": "M04",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T18:00+08:00",
+          "status": "needs_confirmation",
+          "audit_status": "passed",
+          "risk_reasons": [],
+          "audit_evidence": [],
+          "evidence_conflicts": [],
+          "suggested_slot": "2026-11-15T19:00+08:00",
+          "pending_items": [
+            "请确认改期至 2026-11-15T19:00+08:00"
+          ],
+          "draft": {
+            "status": "not_attempted"
+          },
+          "incomplete_reason": null,
+          "confirmation": {
+            "status": "pending",
+            "confirmation_id": "9425d33d-93ab-494e-830f-5f682c1be03e",
+            "slot": "2026-11-15T19:00+08:00"
+          },
+          "model": "MiniMax-M3.1-Flash",
+          "trace": [
+            {
+              "step": 1,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M04",
+                "metadata": {
+                  "title": "封面设计教程",
+                  "rights_cleared": true,
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "获取素材M04的元数据以进行规则审核",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 2,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "findings": []
+              },
+              "decision_basis": "依据已读元数据检查审核规则",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 3,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "exact"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "exact",
+                "available": [],
+                "occupied": [
+                  "2026-11-15T18:00+08:00"
+                ]
+              },
+              "decision_basis": "查询授权时段2026-11-15T18:00+08:00的占用情况",
+              "next_action": "query_slots"
+            },
+            {
+              "step": 4,
+              "actor": "model",
+              "action": "query_slots",
+              "arguments": {
+                "mode": "alternatives"
+              },
+              "result": {
+                "status": "ok",
+                "mode": "alternatives",
+                "available": [
+                  "2026-11-15T19:00+08:00"
+                ],
+                "occupied": [
+                  "2026-11-15T20:00+08:00"
+                ]
+              },
+              "decision_basis": "授权时段已被占用，查询同日替代时段",
+              "next_action": "finish"
+            },
+            {
+              "step": 5,
+              "actor": "model",
+              "action": "finish",
+              "arguments": {
+                "proposed_slot": "2026-11-15T19:00+08:00"
+              },
+              "result": {
+                "status": "needs_confirmation",
+                "confirmation": {
+                  "status": "pending",
+                  "confirmation_id": "9425d33d-93ab-494e-830f-5f682c1be03e",
+                  "slot": "2026-11-15T19:00+08:00"
+                }
+              },
+              "decision_basis": "审核通过但授权时段已被占用，无法保存草稿；改期候选需用户确认",
+              "next_action": null
+            }
+          ],
+          "context": {
+            "budget_bytes": 24576,
+            "compact_at_bytes": 12288,
+            "observation_limit_bytes": 2048,
+            "rounds": [
+              {
+                "step": 1,
+                "bytes_before": 3215,
+                "bytes_after": 3215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 0,
+                "over_budget": false
+              },
+              {
+                "step": 2,
+                "bytes_before": 3720,
+                "bytes_after": 3720,
+                "exchanges_removed": 0,
+                "exchanges_retained": 1,
+                "over_budget": false
+              },
+              {
+                "step": 3,
+                "bytes_before": 4041,
+                "bytes_after": 4041,
+                "exchanges_removed": 0,
+                "exchanges_retained": 2,
+                "over_budget": false
+              },
+              {
+                "step": 4,
+                "bytes_before": 4451,
+                "bytes_after": 4451,
+                "exchanges_removed": 0,
+                "exchanges_retained": 3,
+                "over_budget": false
+              },
+              {
+                "step": 5,
+                "bytes_before": 5049,
+                "bytes_after": 5049,
+                "exchanges_removed": 0,
+                "exchanges_retained": 4,
+                "over_budget": false
+              }
+            ]
+          }
+        }
+      ],
+      "database_rows": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "slot": "2026-11-15T18:00+08:00",
+          "draft_id": "4b743b53-f639-4c15-816b-55afde98d0d1"
+        }
+      ],
+      "confirmation_rows": [
+        {
+          "confirmation_id": "9425d33d-93ab-494e-830f-5f682c1be03e",
+          "material_id": "M04",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "slot": "2026-11-15T19:00+08:00",
+          "draft_id": null
+        }
+      ],
+      "phases": [
+        {
+          "input": [
+            {
+              "material_id": "M01",
+              "requested_slot": "2026-11-15T18:00+08:00"
+            },
+            {
+              "material_id": "M04",
+              "requested_slot": "2026-11-15T18:00+08:00"
+            }
+          ],
+          "cli_flags": [],
+          "draft_count": 1
+        }
+      ]
+    },
+    {
+      "case": "step-limit",
+      "input": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00"
+        }
+      ],
+      "calendar": {
+        "occupied": [],
+        "alternative_times": [
+          "19:00",
+          "20:00"
+        ]
+      },
+      "cli_flags": [
+        "--max-steps",
+        "2"
+      ],
+      "passed": true,
+      "failures": [],
+      "elapsed_seconds": 9.5,
+      "expected": [
+        {
+          "status": "incomplete",
+          "action": "check_rules",
+          "slot": null,
+          "evidence": "step_limit"
+        }
+      ],
+      "expected_database_slots": [],
+      "actual": [
+        {
+          "material_id": "M01",
+          "requested_slot": "2026-11-15T18:00+08:00",
+          "confirmed_slot": "2026-11-15T18:00+08:00",
+          "status": "incomplete",
+          "audit_status": "passed",
+          "risk_reasons": [],
+          "audit_evidence": [],
+          "evidence_conflicts": [],
+          "suggested_slot": null,
+          "pending_items": [],
+          "draft": {
+            "status": "not_attempted"
+          },
+          "incomplete_reason": "step_limit",
+          "model": "MiniMax-M3.1-Flash",
+          "trace": [
+            {
+              "step": 1,
+              "actor": "model",
+              "action": "read_material",
+              "arguments": {},
+              "result": {
+                "status": "found",
+                "material_id": "M01",
+                "metadata": {
+                  "title": "剪辑快捷键教程",
+                  "rights_cleared": true,
+                  "brand_reviewed": true
+                }
+              },
+              "decision_basis": "读取素材 M01 的元数据以进行规则审核",
+              "next_action": "check_rules"
+            },
+            {
+              "step": 2,
+              "actor": "model",
+              "action": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "findings": []
+              },
+              "decision_basis": "依据已读取的元数据检查审核规则",
+              "next_action": null
+            }
+          ],
+          "context": {
+            "budget_bytes": 24576,
+            "compact_at_bytes": 12288,
+            "observation_limit_bytes": 2048,
+            "rounds": [
+              {
+                "step": 1,
+                "bytes_before": 3215,
+                "bytes_after": 3215,
+                "exchanges_removed": 0,
+                "exchanges_retained": 0,
+                "over_budget": false
+              },
+              {
+                "step": 2,
+                "bytes_before": 3657,
+                "bytes_after": 3657,
+                "exchanges_removed": 0,
+                "exchanges_retained": 1,
+                "over_budget": false
+              }
+            ]
+          }
+        }
+      ],
+      "database_rows": [],
+      "confirmation_rows": [],
+      "phases": [
+        {
+          "input": [
+            {
+              "material_id": "M01",
+              "requested_slot": "2026-11-15T18:00+08:00"
+            }
+          ],
+          "cli_flags": [
+            "--max-steps",
+            "2"
+          ],
+          "draft_count": 0
+        }
+      ]
+    }
+  ]
+}

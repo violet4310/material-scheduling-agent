@@ -1,0 +1,43 @@
+{
+  "mode": "mock",
+  "results": [
+    {
+      "material_id": "M01",
+      "requested_slot": "2026-11-15T18:00+08:00",
+      "confirmed_slot": "2026-11-15T18:00+08:00",
+      "status": "reused",
+      "audit_status": "passed",
+      "risk_reasons": [],
+      "suggested_slot": "2026-11-15T18:00+08:00",
+      "pending_items": [],
+      "draft": {
+        "status": "reused",
+        "draft_id": "f8c44800-d104-4d40-b297-595b95826218",
+        "slot": "2026-11-15T18:00+08:00"
+      },
+      "incomplete_reason": null,
+      "model": null,
+      "trace": [
+        {
+          "step": 0,
+          "actor": "runtime",
+          "action": "reuse_existing_draft",
+          "arguments": {
+            "material_id": "M01",
+            "requested_slot": "2026-11-15T18:00+08:00",
+            "confirmed_slot": "2026-11-15T18:00+08:00"
+          },
+          "result": {
+            "status": "reused",
+            "draft_id": "f8c44800-d104-4d40-b297-595b95826218",
+            "slot": "2026-11-15T18:00+08:00"
+          },
+          "decision_basis": "该素材和原始发布时间已关联草稿"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "draft_count": 1
+  }
+}

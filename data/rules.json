@@ -1,0 +1,4 @@
+[
+  {"id": "R01", "field": "rights_cleared", "expected": true, "reason": "素材版权授权未通过", "question": "这项素材的版权授权是否通过？请提供授权记录编号和审核结论。"},
+  {"id": "R02", "field": "brand_reviewed", "expected": true, "reason": "品牌审核未通过", "question": "这项素材是否通过品牌审核？请提供审核记录编号和审核结论。"}
+]

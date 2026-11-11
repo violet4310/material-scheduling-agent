@@ -1,0 +1,100 @@
+{
+  "mode": "mock",
+  "results": [
+    {
+      "material_id": "M01",
+      "requested_slot": "2026-11-15T18:00+08:00",
+      "confirmed_slot": "2026-11-15T19:00+08:00",
+      "status": "saved",
+      "audit_status": "passed",
+      "risk_reasons": [],
+      "suggested_slot": "2026-11-15T19:00+08:00",
+      "pending_items": [],
+      "draft": {
+        "status": "saved",
+        "draft_id": "d995e28d-911b-494d-9918-7609e61e3a9a",
+        "slot": "2026-11-15T19:00+08:00"
+      },
+      "incomplete_reason": null,
+      "model": "offline-mock",
+      "trace": [
+        {
+          "step": 1,
+          "actor": "model",
+          "action": "read_material",
+          "arguments": {},
+          "result": {
+            "status": "found",
+            "material_id": "M01",
+            "metadata": {
+              "title": "剪辑快捷键教程",
+              "rights_cleared": true,
+              "brand_reviewed": true
+            }
+          },
+          "decision_basis": "读取审核所需的素材字段",
+          "next_action": "check_rules"
+        },
+        {
+          "step": 2,
+          "actor": "model",
+          "action": "check_rules",
+          "arguments": {},
+          "result": {
+            "status": "passed",
+            "findings": []
+          },
+          "decision_basis": "根据素材数据执行审核规则",
+          "next_action": "query_slots"
+        },
+        {
+          "step": 3,
+          "actor": "model",
+          "action": "query_slots",
+          "arguments": {
+            "mode": "exact"
+          },
+          "result": {
+            "status": "ok",
+            "mode": "exact",
+            "available": [
+              "2026-11-15T19:00+08:00"
+            ],
+            "occupied": []
+          },
+          "decision_basis": "审核通过，查询用户指定的时段",
+          "next_action": "save_draft"
+        },
+        {
+          "step": 4,
+          "actor": "model",
+          "action": "save_draft",
+          "arguments": {
+            "slot": "2026-11-15T19:00+08:00"
+          },
+          "result": {
+            "status": "saved",
+            "draft_id": "d995e28d-911b-494d-9918-7609e61e3a9a",
+            "slot": "2026-11-15T19:00+08:00"
+          },
+          "decision_basis": "授权时段空闲",
+          "next_action": "finish"
+        },
+        {
+          "step": 5,
+          "actor": "model",
+          "action": "finish",
+          "arguments": {},
+          "result": {
+            "status": "saved"
+          },
+          "decision_basis": "工具返回了已保存的草稿 ID",
+          "next_action": null
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "draft_count": 1
+  }
+}

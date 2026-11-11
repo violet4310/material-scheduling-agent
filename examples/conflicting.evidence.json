@@ -1,0 +1,8 @@
+{
+  "M02": {
+    "rights_cleared": [
+      {"source_id": "E02", "value": true},
+      {"source_id": "E02-REVIEW", "value": false}
+    ]
+  }
+}

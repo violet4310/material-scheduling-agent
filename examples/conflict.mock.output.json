@@ -1,0 +1,107 @@
+{
+  "mode": "mock",
+  "results": [
+    {
+      "material_id": "M01",
+      "requested_slot": "2026-11-15T18:00+08:00",
+      "confirmed_slot": "2026-11-15T18:00+08:00",
+      "status": "needs_confirmation",
+      "audit_status": "passed",
+      "risk_reasons": [],
+      "suggested_slot": "2026-11-15T19:00+08:00",
+      "pending_items": [
+        "请确认改期至 2026-11-15T19:00+08:00"
+      ],
+      "draft": {
+        "status": "not_attempted"
+      },
+      "incomplete_reason": null,
+      "model": "offline-mock",
+      "trace": [
+        {
+          "step": 1,
+          "actor": "model",
+          "action": "read_material",
+          "arguments": {},
+          "result": {
+            "status": "found",
+            "material_id": "M01",
+            "metadata": {
+              "title": "剪辑快捷键教程",
+              "rights_cleared": true,
+              "brand_reviewed": true
+            }
+          },
+          "decision_basis": "读取审核所需的素材字段",
+          "next_action": "check_rules"
+        },
+        {
+          "step": 2,
+          "actor": "model",
+          "action": "check_rules",
+          "arguments": {},
+          "result": {
+            "status": "passed",
+            "findings": []
+          },
+          "decision_basis": "根据素材数据执行审核规则",
+          "next_action": "query_slots"
+        },
+        {
+          "step": 3,
+          "actor": "model",
+          "action": "query_slots",
+          "arguments": {
+            "mode": "exact"
+          },
+          "result": {
+            "status": "ok",
+            "mode": "exact",
+            "available": [],
+            "occupied": [
+              "2026-11-15T18:00+08:00"
+            ]
+          },
+          "decision_basis": "审核通过，查询用户指定的时段",
+          "next_action": "query_slots"
+        },
+        {
+          "step": 4,
+          "actor": "model",
+          "action": "query_slots",
+          "arguments": {
+            "mode": "alternatives"
+          },
+          "result": {
+            "status": "ok",
+            "mode": "alternatives",
+            "available": [
+              "2026-11-15T19:00+08:00"
+            ],
+            "occupied": [
+              "2026-11-15T20:00+08:00"
+            ]
+          },
+          "decision_basis": "指定时段被占用，查询同日替代",
+          "next_action": "finish"
+        },
+        {
+          "step": 5,
+          "actor": "model",
+          "action": "finish",
+          "arguments": {
+            "proposed_slot": "2026-11-15T19:00+08:00"
+          },
+          "result": {
+            "status": "needs_confirmation"
+          },
+          "decision_basis": "候选空闲，改期需用户确认",
+          "next_action": null
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "draft_count": 0
+  }
+}

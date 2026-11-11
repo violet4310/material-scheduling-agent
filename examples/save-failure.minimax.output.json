@@ -1,0 +1,98 @@
+{
+  "mode": "minimax",
+  "results": [
+    {
+      "material_id": "M01",
+      "requested_slot": "2026-11-15T18:00+08:00",
+      "confirmed_slot": "2026-11-15T18:00+08:00",
+      "status": "save_failed",
+      "audit_status": "passed",
+      "risk_reasons": [],
+      "suggested_slot": null,
+      "pending_items": [],
+      "draft": {
+        "status": "save_failed",
+        "reason": "injected_save_failure"
+      },
+      "incomplete_reason": null,
+      "model": "MiniMax-M3.1-Flash",
+      "trace": [
+        {
+          "step": 1,
+          "actor": "model",
+          "action": "read_material",
+          "arguments": {},
+          "result": {
+            "status": "found",
+            "material_id": "M01",
+            "metadata": {
+              "title": "剪辑快捷键教程",
+              "rights_cleared": true,
+              "brand_reviewed": true
+            }
+          },
+          "decision_basis": "读取素材 M01 的元数据以进行审核",
+          "next_action": "check_rules"
+        },
+        {
+          "step": 2,
+          "actor": "model",
+          "action": "check_rules",
+          "arguments": {},
+          "result": {
+            "status": "passed",
+            "findings": []
+          },
+          "decision_basis": "检查已读元数据是否满足发布审核规则",
+          "next_action": "query_slots"
+        },
+        {
+          "step": 3,
+          "actor": "model",
+          "action": "query_slots",
+          "arguments": {
+            "mode": "exact"
+          },
+          "result": {
+            "status": "ok",
+            "mode": "exact",
+            "available": [
+              "2026-11-15T18:00+08:00"
+            ],
+            "occupied": []
+          },
+          "decision_basis": "查询用户授权时段 2026-11-15T18:00+08:00 是否空闲",
+          "next_action": "save_draft"
+        },
+        {
+          "step": 4,
+          "actor": "model",
+          "action": "save_draft",
+          "arguments": {
+            "slot": "2026-11-15T18:00+08:00"
+          },
+          "result": {
+            "status": "save_failed",
+            "reason": "injected_save_failure"
+          },
+          "decision_basis": "素材审核通过且授权时段空闲，保存为草稿",
+          "next_action": "finish"
+        },
+        {
+          "step": 5,
+          "actor": "model",
+          "action": "finish",
+          "arguments": {},
+          "result": {
+            "status": "save_failed"
+          },
+          "decision_basis": "审核通过、授权时段空闲，但保存草稿失败（injected_save_failure），需应用报告写入失败原因",
+          "next_action": null
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "draft_count": 0
+  }
+}

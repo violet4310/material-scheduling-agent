@@ -1,0 +1,69 @@
+Final clean-package verification
+
+Tested source commit 723b0918ee0ed54e23260cf1fdce7ef78307cdea
+
+Python 3.9.6
+
+test_agreeing_evidence_can_fill_gap_and_retains_both_source_ids (test_agent.AgentTest) ... ok
+test_alternative_preview_only_accepts_candidates_exposed_to_model (test_agent.AgentTest) ... ok
+test_approval_does_not_authorize_another_fallback (test_agent.AgentTest) ... ok
+test_asking_is_rejected_when_local_evidence_can_fill_gap (test_agent.AgentTest) ... ok
+test_candidate_taken_after_query_does_not_create_offer (test_agent.AgentTest) ... ok
+test_concurrent_offers_share_one_confirmation (test_agent.AgentTest) ... ok
+test_confirmation_does_not_bypass_changed_audit_result (test_agent.AgentTest) ... ok
+test_conflict_needs_confirmation_then_saves_confirmed_slot (test_agent.AgentTest) ... ok
+test_conflicting_evidence_blocks_even_with_complete_metadata (test_agent.AgentTest) ... ok
+test_context_limit_preserves_already_saved_draft (test_agent.AgentTest) ... ok
+test_failed_save_rolls_back_and_can_be_retried (test_agent.AgentTest) ... ok
+test_initial_context_over_budget_skips_model_call (test_agent.AgentTest) ... ok
+test_large_metadata_and_compacted_history_still_require_confirmation (test_agent.AgentTest) ... ok
+test_metadata_disagreeing_with_single_record_requires_review (test_agent.AgentTest) ... ok
+test_missing_metadata_and_rule_risk_are_distinct (test_agent.AgentTest) ... ok
+test_model_failure_stays_visible (test_agent.AgentTest) ... ok
+test_normal_and_duplicate_from_cli (test_agent.AgentTest) ... ok
+test_parallel_actions_from_model_cannot_trigger_a_write (test_agent.AgentTest) ... ok
+test_save_failure_rolls_back_ticket_binding (test_agent.AgentTest) ... ok
+test_save_guard_rejects_risk_and_missing_slot_check (test_agent.AgentTest) ... ok
+test_save_guard_rejects_unauthorized_slot_even_if_queried (test_agent.AgentTest) ... ok
+test_step_limit_preserves_draft_already_saved (test_agent.AgentTest) ... ok
+test_supplement_can_reveal_risk_and_cannot_override_known_risk (test_agent.AgentTest) ... ok
+test_supplement_requires_reaudit_and_preserves_original_metadata (test_agent.AgentTest) ... ok
+test_ticket_binds_material_and_slot_and_replay_reuses_draft (test_agent.AgentTest) ... ok
+test_ticket_rechecks_busy_slot_and_offers_new_confirmation (test_agent.AgentTest) ... ok
+test_two_writers_cannot_reserve_same_slot (test_agent.AgentTest) ... ok
+test_two_writers_reuse_same_draft_for_same_request (test_agent.AgentTest) ... ok
+test_unknown_material_requests_metadata (test_agent.AgentTest) ... ok
+test_user_can_answer_clarification_with_evidence_on_new_cli_run (test_agent.AgentTest) ... ok
+test_compaction_keeps_latest_complete_provider_exchange (test_context.ContextTest) ... ok
+test_observation_limit_preserves_write_status_and_receipt (test_context.ContextTest) ... ok
+test_long_retry_after_and_invalid_credentials_are_not_retried (test_models.MiniMaxTest) ... ok
+test_rate_limit_retries_are_bounded (test_models.MiniMaxTest) ... ok
+test_rate_limit_retries_same_model_request (test_models.MiniMaxTest) ... ok
+
+----------------------------------------------------------------------
+Ran 35 tests in 0.394s
+
+OK
+
+PASS normal-1: saved | drafts: 1
+PASS normal-2: saved | drafts: 1
+PASS normal-3: saved | drafts: 1
+PASS conflict-1: needs_confirmation | drafts: 0
+PASS conflict-2: needs_confirmation | drafts: 0
+PASS conflict-3: needs_confirmation | drafts: 0
+PASS shift-candidate: needs_confirmation | drafts: 0
+PASS no-candidate: slot_conflict | drafts: 0
+PASS missing-and-answered: insufficient_info → saved | drafts: 0 → 1
+PASS evidence-conflict-and-resolved: evidence_conflict → saved | drafts: 0 → 1
+PASS metadata-evidence-conflict: evidence_conflict | drafts: 0
+PASS rule-risk: blocked | drafts: 0
+PASS supplement-clears-risk: saved | drafts: 1
+PASS supplement-reveals-risk: blocked | drafts: 0
+PASS confirmation-ticket: needs_confirmation → invalid_confirmation → saved → reused | drafts: 0 → 0 → 1 → 1
+  reused draft ID: 07362c9a-50b6-4723-a895-f5aa45c709c1
+PASS confirmed-and-replayed: saved → reused | drafts: 1 → 1
+  reused draft ID: 6af83add-3d8e-4989-b316-a030c0ad7c5a
+PASS save-failure: save_failed | drafts: 0
+PASS batch-slot-contention: saved → needs_confirmation | drafts: 1
+PASS step-limit: incomplete | drafts: 0
+mock: 19/19 cases passed
